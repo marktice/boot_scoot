@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root  'pages#home'
 
   get   '/profile',         to: 'profiles#show'
   post  '/profile',         to: 'profiles#create'
@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   get   'pages/contact'
 
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

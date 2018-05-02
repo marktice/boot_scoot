@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     
     if @profile.save
-      flash[:success] = "profile created"
+      flash[:success] = "Profile created"
       redirect_to root_path
     else
       flash.now[:danger] = "Could not save profile"
@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profile
     if @profile.update(profile_params)
-      flash[:success] = "profile updated"
+      flash[:success] = "Profile updated"
       redirect_to profile_path
     else
       flash.now[:danger] = "Could not update profile"
@@ -37,7 +37,10 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit([
       :first_name, 
       :last_name,
-      :car_description
+      :sex,
+      :phone_number,
+      :home_address,
+      :avatar_image_data
     ])
   end
 end
