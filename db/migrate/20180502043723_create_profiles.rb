@@ -11,8 +11,6 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.decimal :longitude
       t.text :avatar_image_data
       t.decimal :average_rating
-      t.boolean :admin, default: false
-      t.string :stripe_charge_id
 
       t.timestamps
     end
