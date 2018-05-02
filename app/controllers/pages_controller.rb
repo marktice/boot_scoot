@@ -12,9 +12,13 @@ class PagesController < ApplicationController
       message: email_params[:message]
     }
 
-    ContactMailer.send_contact_email(email_info).deliver_now
-    
-    render :contact
+    if ContactMailer.send_contact_email(email_info).deliver_now
+      flash[:success] = "Message sent, thanks for your feedback!"
+      redirect_to root_path
+    else
+      flash.now[:danger] = "Your message could not be sent"
+      render :contact
+    end
   end
 
   private
