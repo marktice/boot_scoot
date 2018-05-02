@@ -7,7 +7,7 @@ end
 
 # Added gems
 gem 'devise', '~> 4.4', '>= 4.4.3'
-
+gem 'geocoder', '~> 1.4', '>= 1.4.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
