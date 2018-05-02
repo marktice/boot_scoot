@@ -4,4 +4,6 @@
 <%= @profile.home_address %><br />
 <%= @profile.latitude %><br />
 <%= @profile.longitude %><br />
-<%= image_tag @profile.avatar_image_url, width: 200 %><br />
+<%= image_tag @profile.avatar_image_url(:original), width: 200 %><br />
+<%= image_tag @profile.avatar_image_url(:medium), width: 200 %><br />
+<%= image_tag @profile.avatar_image_url(:thumb), width: 200 %><br />
