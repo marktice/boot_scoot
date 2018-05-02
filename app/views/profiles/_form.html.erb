@@ -21,7 +21,8 @@
   </div>
     <div class="form-field">
     <%= form.label :avatar_image_data %>
-    <%= form.text_field :avatar_image_data %>
+    <%= form.hidden_field :avatar_image, value: @profile.cached_avatar_image_data %>
+    <%= form.file_field :avatar_image %>
   </div>
   <%= form.submit :Submit, class: 'form-button' %>
 <% end %>

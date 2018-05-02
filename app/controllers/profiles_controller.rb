@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
       :sex,
       :phone_number,
       :home_address,
-      :avatar_image_data
+      :avatar_image
     ])
   end
 end
