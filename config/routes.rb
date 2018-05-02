@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get   '/profile/edit',    to: 'profiles#edit'
   patch '/profile',         to: 'profiles#update'
 
-  get   'pages/contact'
+  get   '/contact',         to: 'pages#contact'
+  post  '/contact',         to: 'pages#contact_email'
 
   devise_for :users
 end
