@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
+  let(:user) { FactoryBot.create(:user) }
+  # before { login_as(user, :scope => :user) }
+  before { sign_in user }
 
   describe "GET #home" do
     it "returns http success" do
