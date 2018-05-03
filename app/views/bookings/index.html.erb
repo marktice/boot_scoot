@@ -24,7 +24,7 @@
 
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -37.8182119, lng: 144.9543325},
-      zoom: 14
+      zoom: 13
     });
 
     // markers for each location
@@ -50,6 +50,7 @@
         infoWindow.setContent('Location found.');
         infoWindow.open(map);
         map.setCenter(pos);
+        map.setZoom(15);
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
