@@ -21,3 +21,49 @@ Longitude: <%= @booking.destination.longitude %><br />
 
 Distance between: <%= @booking.distance %> km<br />
 Calculated cost: $<%= @booking.cost %><br />
+
+<div id="right-panel"></div>
+
+<div id="map"></div>
+
+<%= javascript_tag do %>
+  function initMap() {
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var directionsService = new google.maps.DirectionsService;
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      //center: {lat: 37.77, lng: -122.447}
+    });
+    directionsDisplay.setMap(map);
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+    // directions panel for driver
+    <% if current_user == @booking.driver %>
+      directionsDisplay.setPanel(document.getElementById('right-panel'));
+    <% end %>
+  }
+
+  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+
+    const jsorigin = <%= raw @booking.origin.to_json %>
+    const jsdestination = <%= raw @booking.destination.to_json %>
+
+    directionsService.route({
+      origin: {lat: parseFloat(jsorigin.latitude), lng: parseFloat(jsorigin.longitude)},
+      destination: {lat: parseFloat(jsdestination.latitude), lng: parseFloat(jsdestination.longitude)},  
+      travelMode: 'DRIVING'
+    }, function(response, status) {
+      if (status == 'OK') {
+        directionsDisplay.setDirections(response);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
+    console.table(jsorigin)
+    console.table(jsdestination)
+  }
+<% end %>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=<%= ENV.fetch('GOOGLE_MAPS_API') %>&callback=initMap">
+</script>
