@@ -18,9 +18,17 @@ class BookingsController < ApplicationController
       flash[:danger] = 'You require a car to make a booking'
     else      
       @booking = Booking.new(booking_params)
-      
-      # passenger is creates bookings
+
+      # create and add locations
+      @booking.origin = Location.create(address: booking_params[:origin_address])
+      @booking.destination = Location.create(address: booking_params[:destination_address])
+      # passenger creates bookings
       @booking.passenger = current_user
+
+      # calculate and set distance and cost
+      @booking.distance = @booking.origin.distance_from(@booking.destination.to_coordinates)
+      @booking.cost = 8.50 + @booking.distance * 2.75
+      
       if @booking.save!
         flash[:success] = 'Booking created, looking for a driver'
         redirect_to @booking

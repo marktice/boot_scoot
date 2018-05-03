@@ -2,14 +2,22 @@
 
 <% if current_user == @booking.passenger %>
   <% if @booking.driver != nil %>
-    Driver: <%= @booking.driver.email %><br />
+    Driver: <%= @booking.driver.profile.first_name %><br />
   <% end %>
 <% elsif current_user == @booking.driver %>
-  Passenger: <%= @booking.passenger.email %><br />
+  Passenger: <%= @booking.passenger.profile.first_name %><br />
 <% end %>
 
 Status: <%= @booking.status %><br />
-Origin: <%= @booking.origin_address %><br />
-Destination: <%= @booking.destination_address %><br />
-Distance: <%= @booking.distance %><br />
-Cost: $<%= @booking.cost %><br />
+Origin(from booking): <%= @booking.origin_address %><br />
+Origin(from location): <%= @booking.origin.address %><br />
+Latitude: <%= @booking.origin.latitude %><br />
+Longitude: <%= @booking.origin.longitude %><br />
+
+Destination(from booking): <%= @booking.destination_address %><br />
+Destination(from location): <%= @booking.destination.address %><br />
+Latitude: <%= @booking.destination.latitude %><br />
+Longitude: <%= @booking.destination.longitude %><br />
+
+Distance between: <%= @booking.distance %> km<br />
+Calculated cost: $<%= @booking.cost %><br />
