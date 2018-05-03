@@ -3,26 +3,35 @@
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
   </div>
+  
   <div class="form-field">
     <%= form.label :last_name %>
     <%= form.text_field :last_name %>
   </div>
+  
   <div class="form-field">
     <%= form.label :sex %>
     <%= form.select :sex, [nil, 'male', 'female', 'other'] %>
   </div>
+  
   <div class="form-field">
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number %>
   </div>
+  
   <div class="form-field">
     <%= form.label :home_address %>
     <%= form.text_field :home_address %>
   </div>
+  
+  <% unless @profile.avatar_image_data == nil %>  
+    <%= image_tag @profile.avatar_image_url(:thumb) %>
+  <% end %>
   <div class="form-field">
     <%= form.label :avatar_image_data %>
     <%= form.hidden_field :avatar_image, value: @profile.cached_avatar_image_data %>
     <%= form.file_field :avatar_image %>
   </div>
+  
   <%= form.submit :Submit, class: 'form-button' %>
 <% end %>

@@ -3,22 +3,30 @@
     <%= form.label :make %>
     <%= form.text_field :make %>
   </div>
+  
   <div class="form-field">
     <%= form.label :model %>
     <%= form.text_field :model %>
   </div>
+  
   <div class="form-field">
     <%= form.label :number_plate %>
     <%= form.text_field :number_plate %>
   </div>
+  
   <div class="form-field">
     <%= form.label :transmission %>
     <%= form.select :transmission, [nil, 'auto', 'manual'] %>
   </div>
+
+  <% unless @car.car_image_data == nil %>  
+    <%= image_tag @car.car_image_url(:thumb) %>
+  <% end %>
   <div class="form-field">
     <%= form.label :car_image_data %>
     <%= form.hidden_field :car_image, value: @car.cached_car_image_data %>
     <%= form.file_field :car_image %>
   </div>
+  
   <%= form.submit :Submit, class: 'form-button' %>
 <% end %>
