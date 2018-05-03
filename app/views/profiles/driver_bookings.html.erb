@@ -1,0 +1,10 @@
+<h1>Your trips as driver</h1>
+
+<% @bookings.each do |booking| %>
+  Date/time: <%= booking.created_at %><br />
+  Origin: <%= booking.origin_address %><br /> 
+  Destination: <%= booking.destination_address %><br />
+  Passenger: <%= booking.passenger.profile.first_name %><br />  
+  <%= link_to 'Show', booking_path(booking) %><br />
+  <br />
+<% end %>

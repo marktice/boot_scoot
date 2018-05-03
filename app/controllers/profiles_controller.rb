@@ -1,4 +1,13 @@
 class ProfilesController < ApplicationController
+
+  def passenger_bookings
+    @bookings = current_user.passenger_bookings  
+  end
+
+  def driver_bookings
+    @bookings = current_user.driver_bookings  
+  end
+
   def show
     @profile = current_user.profile
   end
