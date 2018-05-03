@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_one :profile
   has_one :car
+  has_one :driver_profile
 end

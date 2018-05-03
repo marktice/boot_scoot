@@ -15,4 +15,9 @@ Rails.application.routes.draw do
   post  '/car',             to: 'cars#create'
   get   '/car/edit',        to: 'cars#edit'
   patch '/car',             to: 'cars#update'
+
+  get   '/driver',          to: 'driver_profiles#show'
+  post  '/driver',          to: 'driver_profiles#create'
+  get   '/driver/edit',     to: 'driver_profiles#edit'
+  patch '/driver',          to: 'driver_profiles#update'
 end

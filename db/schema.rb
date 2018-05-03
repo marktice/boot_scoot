@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503004753) do
+ActiveRecord::Schema.define(version: 20180503020212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20180503004753) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "driver_profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "drivers_licence"
+    t.string "transport_type"
+    t.text "transport_image_data"
+    t.boolean "approved", default: false
+    t.datetime "approved_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_driver_profiles_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -63,5 +75,6 @@ ActiveRecord::Schema.define(version: 20180503004753) do
   end
 
   add_foreign_key "cars", "users"
+  add_foreign_key "driver_profiles", "users"
   add_foreign_key "profiles", "users"
 end

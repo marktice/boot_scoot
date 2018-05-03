@@ -1,0 +1,22 @@
+<%= form_with model: @driver_profile, url: driver_path, local: true do |form| %>
+  <div class="form-field">
+    <%= form.label :drivers_licence %>
+    <%= form.text_field :drivers_licence %>
+  </div>
+  
+  <div class="form-field">
+    <%= form.label :transport_type %>
+    <%= form.select :transport_type, [nil, 'small/foldable scooter', 'foldable bike', 'skateboard', 'segway', 'other'] %>
+  </div>
+
+  <% unless @driver_profile.transport_image_data == nil %>  
+    <%= image_tag @driver_profile.transport_image_url(:thumb) %>
+  <% end %>
+  <div class="form-field">
+    <%= form.label :transport_image_data %>
+    <%= form.hidden_field :transport_image, value: @driver_profile.cached_transport_image_data %>
+    <%= form.file_field :transport_image %>
+  </div>
+  
+  <%= form.submit :Submit, class: 'form-button' %>
+<% end %>
