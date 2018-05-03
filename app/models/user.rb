@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_one :profile
   has_one :car
   has_one :driver_profile
+
+  has_many :passenger_bookings, class_name: 'Booking', foreign_key: 'passenger_id'
+  has_many :driver_bookings,    class_name: 'Booking', foreign_key: 'driver_id'
 end
