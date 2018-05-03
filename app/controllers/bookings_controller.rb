@@ -13,19 +13,24 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    
-    # passenger is creates bookings
-    @booking.passenger = current_user
-    if @booking.save!
-      flash[:success] = 'Booking created, looking for a driver'
-      redirect_to @booking
-    else
-      flash[:danger] = 'Could not create booking'
-      render :new
+    if current_user.car == nil
+      redirect_to car_edit_path
+      flash[:danger] = 'You require a car to make a booking'
+    else      
+      @booking = Booking.new(booking_params)
+      
+      # passenger is creates bookings
+      @booking.passenger = current_user
+      if @booking.save!
+        flash[:success] = 'Booking created, looking for a driver'
+        redirect_to @booking
+      else
+        flash[:danger] = 'Could not create booking'
+        render :new
+      end
+      
     end
   end
-
 
   # def edit
   #   @booking = Booking.new(booking_params)
