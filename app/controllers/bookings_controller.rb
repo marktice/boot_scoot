@@ -2,6 +2,18 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.order('created_at ASC')  
+
+    @locations = []
+    Booking.all.each do |booking|
+      unless booking.origin.nil?
+      @locations.push({
+        lat: booking.origin.latitude,
+        lng: booking.origin.longitude,
+        name: booking.passenger.profile.first_name
+      })
+      end
+    end
+    puts @locations
   end
 
   def show
