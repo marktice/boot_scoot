@@ -5,7 +5,9 @@ Home Address: <%= @profile.home_address %><br />
 Latitude: <%= @profile.latitude %><br />
 Longitude: <%= @profile.longitude %><br />
 
-<h2>Avatar Image</h2>
-Original: <%= image_tag @profile.avatar_image_url(:original) %><br />
-Medium: <%= image_tag @profile.avatar_image_url(:medium) %><br />
-Thumb: <%= image_tag @profile.avatar_image_url(:thumb) %><br />
+<% unless @profile.avatar_image_data == nil %>
+  <h2>Avatar Image</h2>
+  Original: <%= image_tag @profile.avatar_image_url(:original) %><br />
+  Medium: <%= image_tag @profile.avatar_image_url(:medium) %><br />
+  Thumb: <%= image_tag @profile.avatar_image_url(:thumb) %><br />
+<% end %>

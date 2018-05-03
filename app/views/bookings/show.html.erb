@@ -1,0 +1,15 @@
+<h1>Booking</h1>
+
+<% if current_user == @booking.passenger %>
+  <% if @booking.driver != nil %>
+    Driver: <%= @booking.driver.email %><br />
+  <% end %>
+<% elsif current_user == @booking.driver %>
+  Passenger: <%= @booking.passenger.email %><br />
+<% end %>
+
+Status: <%= @booking.status %><br />
+Origin: <%= @booking.origin_address %><br />
+Destination: <%= @booking.destination_address %><br />
+Distance: <%= @booking.distance %><br />
+Cost: $<%= @booking.cost %><br />

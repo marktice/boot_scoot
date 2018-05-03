@@ -1,0 +1,7 @@
+<h1>Make a booking</h1>
+
+<%= form_for @booking do |f| %>
+  <%= f.text_field :origin_address %>
+  <%= f.text_field :destination_address %>
+  <%= f.submit %>
+<% end %>

@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   post  '/driver',          to: 'driver_profiles#create'
   get   '/driver/edit',     to: 'driver_profiles#edit'
   patch '/driver',          to: 'driver_profiles#update'
+
+  resources :bookings
 end

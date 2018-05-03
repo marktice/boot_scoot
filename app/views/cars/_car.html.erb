@@ -3,7 +3,9 @@ Model: <%= @car.model %><br />
 Number Plate: <%= @car.number_plate %><br />
 Transmission: <%= @car.transmission %><br />
 
-<h2>Car Image</h2>
-Original: <%= image_tag @car.car_image_url(:original) %><br />
-Medium: <%= image_tag @car.car_image_url(:medium) %><br />
-Thumb: <%= image_tag @car.car_image_url(:thumb) %><br />
+<% unless @car.car_image_data == nil %>  
+  <h2>Car Image</h2>
+  Original: <%= image_tag @car.car_image_url(:original) %><br />
+  Medium: <%= image_tag @car.car_image_url(:medium) %><br />
+  Thumb: <%= image_tag @car.car_image_url(:thumb) %><br />
+<% end %>
