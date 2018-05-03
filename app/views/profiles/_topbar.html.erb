@@ -1,0 +1,15 @@
+<ul>
+  <li><%= link_to 'Your Profile', profile_path %></li>
+
+  <% if current_user.car == nil %>
+    <li><%= link_to 'Add your car!', car_edit_path %></li>
+  <% else %>
+    <li><%= link_to 'Your Car', car_path %></li>
+  <% end %>
+
+  <% if current_user.driver_profile == nil %>
+    <li><%= link_to 'Become a driver!', driver_edit_path %></li>
+  <% else %>
+    <li><%= link_to 'Driver Profile', driver_path %></li>
+  <% end %>
+</ul>

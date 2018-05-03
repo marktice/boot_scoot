@@ -1,7 +1,15 @@
-<h1>Make a booking</h1>
+<h1>New booking</h1>
 
 <%= form_for @booking do |f| %>
-  <%= f.text_field :origin_address %>
-  <%= f.text_field :destination_address %>
+  <div class="form-field">
+    <%= f.label :origin %>
+    <%= f.text_field :origin_address %>
+  </div>
+  
+  <div class="form-field">
+    <%= f.label :destination %>
+    <%= f.text_field :destination_address %>
+  </div>
+
   <%= f.submit %>
 <% end %>
