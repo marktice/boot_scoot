@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503035828) do
+ActiveRecord::Schema.define(version: 20180503091452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,11 @@ ActiveRecord::Schema.define(version: 20180503035828) do
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "origin_id"
+    t.bigint "destination_id"
+    t.index ["destination_id"], name: "index_bookings_on_destination_id"
     t.index ["driver_id"], name: "index_bookings_on_driver_id"
+    t.index ["origin_id"], name: "index_bookings_on_origin_id"
     t.index ["passenger_id"], name: "index_bookings_on_passenger_id"
   end
 
@@ -53,6 +57,14 @@ ActiveRecord::Schema.define(version: 20180503035828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_driver_profiles_on_user_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "address"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
