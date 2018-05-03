@@ -1,0 +1,24 @@
+<%= form_with model: @car, url: car_path, local: true do |form| %>
+  <div class="form-field">
+    <%= form.label :make %>
+    <%= form.text_field :make %>
+  </div>
+  <div class="form-field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+  <div class="form-field">
+    <%= form.label :number_plate %>
+    <%= form.text_field :number_plate %>
+  </div>
+  <div class="form-field">
+    <%= form.label :transmission %>
+    <%= form.select :transmission, [nil, 'auto', 'manual'] %>
+  </div>
+  <div class="form-field">
+    <%= form.label :car_image_data %>
+    <%= form.hidden_field :car_image, value: @car.cached_car_image_data %>
+    <%= form.file_field :car_image %>
+  </div>
+  <%= form.submit :Submit, class: 'form-button' %>
+<% end %>
