@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   get   '/contact',         to: 'pages#contact'
   post  '/contact',         to: 'pages#contact_email'
-  
+
 
   get   '/profile',         to: 'profiles#show'
   post  '/profile',         to: 'profiles#create'
