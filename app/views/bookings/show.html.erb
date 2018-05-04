@@ -8,11 +8,11 @@
 
 <% if current_user == @booking.passenger %>
   <% if @booking.driver != nil %>
-    <%= image_tag @booking.driver.profile.avatar_image_url(:thumb) %><br />
+    <%= image_tag @booking.driver.profile.avatar_image_url(:thumb) if @booking.driver.profile.avatar_image_data != nil %><br />
     Your driver: <%= @booking.driver.profile.first_name %><br />
   <% end %>
 <% elsif current_user == @booking.driver %>
-  <%= image_tag @booking.passenger.profile.avatar_image_url(:thumb) %><br />
+  <%= image_tag @booking.passenger.profile.avatar_image_url(:thumb) if @booking.passenger.profile.avatar_image_data != nil %><br />
   Your passenger: <%= @booking.passenger.profile.first_name %><br />
 <% end %>
 
