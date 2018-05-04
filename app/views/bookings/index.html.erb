@@ -2,11 +2,13 @@
 
 <% @bookings.each do |booking| %>
   <div>
-    Passenger: <%= booking.passenger.email %><br />
+    Passenger: <%= booking.passenger.profile.first_name %><br />
     Pickup: <%= booking.origin_address %><br />
-  <%= link_to 'Boot Scoot!', booking_path(booking), method: :patch %><br />
-  </div><br />
+    <%= link_to 'Boot Scoot!', booking_path(booking), method: :patch %><br />
+  </div>
+  <hr>
 <% end %>
+
 
 <div id="map"></div>
 

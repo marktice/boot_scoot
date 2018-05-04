@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
       })
       end
     end
-    puts @locations
+    # puts @locations
   end
 
   def show
@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
         flash[:success] = 'Booking created, looking for a driver'
         redirect_to @booking
       else
-        flash[:danger] = 'Could not create booking'
+        flash.now[:danger] = 'Could not create booking'
         render :new
       end
       
@@ -65,8 +65,8 @@ class BookingsController < ApplicationController
       flash[:success] = "Booking accepted, goto pickup location"
       redirect_to @booking
     else
-      flash.now[:danger] = "Could not accept booking"
-      render :edit
+      flash[:danger] = "Could not accept booking"
+      redirect_to bookings_path
     end
   end
 
