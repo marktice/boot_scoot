@@ -1,0 +1,16 @@
+<%= form_for(@review, url: booking_reviews_path) do |form| %>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating, in: 1..5, step: 1, id: :review_rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :review_content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
