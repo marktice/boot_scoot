@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.order('created_at ASC')  
+    @bookings = Booking.order('created_at ASC')
 
+    # pass all origin locations
     @locations = []
     Booking.all.each do |booking|
       unless booking.origin.nil?
@@ -13,7 +14,6 @@ class BookingsController < ApplicationController
       })
       end
     end
-    # puts @locations
   end
 
   def show

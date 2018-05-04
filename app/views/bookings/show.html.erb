@@ -1,5 +1,8 @@
 <h1>Booking</h1>
 
+<div id="map"></div>
+<div id="right-panel"></div>
+
 <% if current_user == @booking.passenger %>
   <% if @booking.driver != nil %>
     Driver: <%= @booking.driver.profile.first_name %><br />
@@ -22,9 +25,6 @@ Longitude: <%= @booking.destination.longitude %><br />
 Distance between: <%= @booking.distance %> km<br />
 Calculated cost: $<%= @booking.cost %><br />
 
-<div id="right-panel"></div>
-
-<div id="map"></div>
 
 <%= javascript_tag do %>
   function initMap() {
