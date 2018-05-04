@@ -1,13 +1,10 @@
+<% unless @profile.avatar_image_data == nil %>
+  <%= image_tag @profile.avatar_image_url(:medium) %><br />
+<% end %>
+
 Name: <%= @profile.first_name %> <%= @profile.last_name %><br />
 Sex: <%= @profile.sex %><br />
 Phone Number: <%= @profile.phone_number %><br />
 Home Address: <%= @profile.home_address %><br />
 Latitude: <%= @profile.latitude %><br />
 Longitude: <%= @profile.longitude %><br />
-
-<% unless @profile.avatar_image_data == nil %>
-  <h2>Avatar Image</h2>
-  Original: <%= image_tag @profile.avatar_image_url(:original) %><br />
-  Medium: <%= image_tag @profile.avatar_image_url(:medium) %><br />
-  Thumb: <%= image_tag @profile.avatar_image_url(:thumb) %><br />
-<% end %>

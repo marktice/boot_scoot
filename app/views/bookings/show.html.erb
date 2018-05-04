@@ -1,14 +1,16 @@
 <h1>Booking</h1>
 
 <div id="map"></div>
-<div id="right-panel"></div>
+<div id="driver-panel"></div>
 
 <% if current_user == @booking.passenger %>
   <% if @booking.driver != nil %>
-    Driver: <%= @booking.driver.profile.first_name %><br />
+    <%= image_tag @booking.driver.profile.avatar_image_url(:thumb) %><br />
+    Your driver: <%= @booking.driver.profile.first_name %><br />
   <% end %>
 <% elsif current_user == @booking.driver %>
-  Passenger: <%= @booking.passenger.profile.first_name %><br />
+  <%= image_tag @booking.passenger.profile.avatar_image_url(:thumb) %><br />
+  Your passenger: <%= @booking.passenger.profile.first_name %><br />
 <% end %>
 
 Status: <%= @booking.status %><br />
@@ -39,7 +41,7 @@ Calculated cost: $<%= @booking.cost %><br />
 
     // directions panel for driver
     <% if current_user == @booking.driver %>
-      directionsDisplay.setPanel(document.getElementById('right-panel'));
+      directionsDisplay.setPanel(document.getElementById('driver-panel'));
     <% end %>
   }
 
