@@ -2,6 +2,9 @@
 
 <div id="map"></div>
 <div id="driver-panel"></div>
+<% if @booking.driver != nil %>  
+  <%= link_to 'Complete', new_booking_review_path(@booking) %><br />
+<% end %>
 
 <% if current_user == @booking.passenger %>
   <% if @booking.driver != nil %>
