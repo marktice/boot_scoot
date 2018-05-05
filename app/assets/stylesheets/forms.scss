@@ -17,17 +17,19 @@ form {
     padding: 1em;
     transition: all 0.4s ease-in-out;
     margin-bottom: 3px;
-    border: 1px solid $dark-grey;
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    // border: 1px solid $dark-grey;
     &:hover, &:focus {
       background-color: $white;
       color: $dark-grey;
       outline: none;
-      border: 1px solid $primary;
+      // border: 1px solid $primary;
       box-shadow: 0 0 2px $primary;
     }
   }
   textarea {
-    height: 10em;
+    height: 8em;
     resize: none;
   }
   .form-field {
@@ -37,10 +39,12 @@ form {
     width: 50%;
     margin: 0 auto;
     color: $white;
-    background-color: $dark-grey;
+    background-color: $primary;
+    border: none;
     cursor: pointer;
     &:hover {
-      background-color: $primary;
+      color: $white;      
+      background-color: darken($color: $primary, $amount: 10)
     }
   }
 }

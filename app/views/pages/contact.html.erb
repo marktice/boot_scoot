@@ -6,7 +6,8 @@
   </div>
 
   <div class="form-field">
-    <%= f.text_area :message, placeholder: 'Comment' %>
+    <%= f.label :message %>
+    <%= f.text_area :message %>
   </div>
   
   <%= f.submit :Submit, class: 'form-button' %>
