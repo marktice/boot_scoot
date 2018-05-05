@@ -31,14 +31,6 @@ h1 {
   // color: $white;
 }
 
-header {
-  background-color: $primary;
-  a {
-    color: $white;
-    text-decoration: none;
-  }
-}
-
 .flash-success {
   background-color: rgb(105, 209, 105);
   color: $white;
@@ -52,7 +44,7 @@ header {
 
 main {
   background-color: $white;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -61,56 +53,4 @@ main {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-}
-
-
-footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    ". social social up"
-    ". copyr copyr up"; 
-  justify-items: center;
-  align-items: center;
-  background-color: $dark-grey;
-  min-height: 15vh;
-  .social-container {
-    grid-area: social;
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    i {
-      color: $white;
-      font-size: 1.5em;
-      transition: all 0.4s ease;    
-      &:visited {
-        color: $white;
-      }
-      &:hover {
-        color: $primary;
-        transform: scale(1.15);      
-      }
-    }
-  }
-  .copyright {
-    grid-area: copyr;
-    text-align: center;
-    color: $white;
-    font-size: 0.75em;
-  }
-  a#up-button {
-    grid-area: up;
-    i {
-      transition: all 0.4s ease;      
-      color: $white;
-      font-size: 2.25em;
-      &:hover {
-        color: $primary;
-        transform: scale(1.15);        
-      }
-    }
-  }
 }

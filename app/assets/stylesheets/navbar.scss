@@ -1,0 +1,43 @@
+@import '_variables';
+
+header {
+  background-color: $primary;
+  nav {
+    z-index: 999;
+    height: 50px;
+    text-align: center;
+    box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.22), 0px 2px 10px 0 rgba(0, 0, 0, 0.18);
+  }
+}
+
+.nav-links {
+  float: left;
+  margin-left: 2.5%;
+  padding: 15.5px;
+  a {
+    display: inline-block;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+#nav-logo {
+  position: absolute;
+  left: 45%;
+  font-family: $header-font;
+  display: inline-block;
+  padding-top: 15px;
+  a {
+    color: $white;
+  }
+}
+
+#nav-avatar {
+  float: right;
+  margin: 5px 0;
+  margin-right: 2.5%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+}

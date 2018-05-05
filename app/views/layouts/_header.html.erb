@@ -1,19 +1,26 @@
 <header>
   <nav>
-    <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'Contact', contact_path %></li>
-      <% if user_signed_in? %>
-        <li><%= link_to 'New Booking', new_booking_path %></li>
+    <div id="nav-logo"><%= link_to 'Boot Scoot', root_path %></div>
+    <% if user_signed_in? %>
+      <div class="nav-links">
+        <%= link_to 'Booking', new_booking_path, id: 'booking-link' %>
         <% unless current_user.driver_profile == nil %>
-          <li><%= link_to 'Drive!', bookings_path %></li>
+          <%= link_to 'Drive', bookings_path, id: 'drive-link' %>
         <% end %>
-        <li><%= link_to "#{ current_user.email }", profile_path %></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-        <li><%= link_to 'Log in', new_user_session_path %></li>  
+      </div>
+      
+      <% unless current_user.profile == nil %>
+        <%= link_to profile_path do %>
+          <% if current_user.profile.avatar_image_data != nil %>
+            <%= image_tag current_user.profile.avatar_image_url(:thumb), id: "nav-avatar" %>
+          <% else %>
+            <%= current_user.email %>
+          <% end %>
+        <% end %>
       <% end %>
-    </ul>
+    <% else %>
+      <%# link_to 'Sign up', new_user_registration_path %>
+      <%# link_to 'Log in', new_user_session_path %>
+    <% end %>
   </nav>
 </header>

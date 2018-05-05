@@ -1,5 +1,7 @@
+@import '_variables';
+
 #map {
   height: 600px;
   width: 100%;
-  background: red;
+  background: $off-white;
 }
