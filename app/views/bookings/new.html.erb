@@ -1,4 +1,4 @@
-<h1>New booking</h1>
+<h1>Booking</h1>
 
 <%= form_for @booking do |f| %>
   <div class="form-field">
@@ -8,6 +8,7 @@
   <div class="form-field">
     <%= f.text_field :destination_address, placeholder: "Enter destination address" %>
   </div>
+  <%#Wont autocomplete with:    , value: current_user.profile.home_address %>
 
   <%= f.submit :Confirm %>
 <% end %>
@@ -31,7 +32,6 @@
     //this.destinationPlaceId = null;
     var originInput = document.getElementById('booking_origin_address');
     var destinationInput = document.getElementById('booking_destination_address');
-    //var modeSelector = document.getElementById('mode-selector');
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer;
     this.directionsDisplay.setMap(map);
@@ -41,28 +41,10 @@
     var destinationAutocomplete = new google.maps.places.Autocomplete(
         destinationInput, {placeIdOnly: true});
 
-    //this.setupClickListener('changemode-walking', 'WALKING');
-    //this.setupClickListener('changemode-transit', 'TRANSIT');
-    //this.setupClickListener('changemode-driving', 'DRIVING');
-
     this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
     this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
 
-    //this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-    //this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-    //this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
   }
-
-  // Sets a listener on a radio button to change the filter type on Places
-  // Autocomplete.
-  //AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
-    //var radioButton = document.getElementById(id);
-    //var me = this;
-    //radioButton.addEventListener('click', function() {
-      //me.travelMode = mode;
-      //me.route();
-    //});
-  //};
 
   AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
     var me = this;
