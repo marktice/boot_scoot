@@ -10,18 +10,19 @@
   <% if @booking.driver != nil %>
     <%= image_tag @booking.driver.profile.avatar_image_url(:thumb) if @booking.driver.profile.avatar_image_data != nil %><br />
     Your driver: <%= @booking.driver.profile.first_name %><br />
-    Rating : <%= @booking.driver.average_driver_rating %><br />
+    Rating : <%= sprintf("%0.2f", @booking.driver.average_driver_rating) %><br />
   <% end %>
 <% elsif current_user == @booking.driver %>
   <%= image_tag @booking.passenger.profile.avatar_image_url(:thumb) if @booking.passenger.profile.avatar_image_data != nil %><br />
   Your passenger: <%= @booking.passenger.profile.first_name %><br />
-  Rating : <%= @booking.passenger.average_passenger_rating %><br />
+  Rating : <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %><br />
 <% end %>
-Distance: <%= @booking.distance %> km<br />
-Cost: $<%= @booking.cost %><br />
+Distance: <%= sprintf("%0.2f", @booking.distance) %> km<br />
+Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
 <hr>
 
 Status: <%= @booking.status %><br />
+<!--
 Origin(from booking): <%= @booking.origin_address %><br />
 Origin(from location): <%= @booking.origin.address %><br />
 Latitude: <%= @booking.origin.latitude %><br />
@@ -31,7 +32,7 @@ Destination(from booking): <%= @booking.destination_address %><br />
 Destination(from location): <%= @booking.destination.address %><br />
 Latitude: <%= @booking.destination.latitude %><br />
 Longitude: <%= @booking.destination.longitude %><br />
-
+-->
 
 
 

@@ -3,7 +3,7 @@
 <% @bookings.each do |booking| %>
   <% unless booking.driver == nil %>    
     Date/time: <%= booking.created_at %><br />
-    Cost: $<%= booking.cost %><br />
+    Cost: $<%= sprintf("%0.2f", booking.cost) %><br />
     Origin: <%= booking.origin_address %><br /> 
     Destination: <%= booking.destination_address %><br />
     Driver: <%= booking.driver.profile.first_name %><br />  

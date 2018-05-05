@@ -12,6 +12,6 @@
 <%= @profile.home_address %>
 
 <h4>Passenger rating</h4>
-<%= @profile.user.average_passenger_rating %>
+<%= sprintf("%0.2f", @profile.user.average_passenger_rating) %><br />
 <h4>Driver rating</h4>
-<%= @profile.user.average_driver_rating %><br />
+<%= sprintf("%0.2f", @profile.user.average_driver_rating) %><br />

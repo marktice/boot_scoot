@@ -2,6 +2,7 @@
 
 <% @bookings.each do |booking| %>
   Date/time: <%= booking.created_at %><br />
+  Cost: $<%= sprintf("%0.2f", booking.cost) %><br />
   Origin: <%= booking.origin_address %><br /> 
   Destination: <%= booking.destination_address %><br />
   Passenger: <%= booking.passenger.profile.first_name %><br />  
