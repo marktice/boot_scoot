@@ -1,5 +1,5 @@
 <% unless @profile.avatar_image_data == nil %>
-  <%= image_tag @profile.avatar_image_url(:medium) %><br />
+  <%= image_tag @profile.avatar_image_url(:medium), class: 'image', id: 'avatar_img' %><br />
 <% end %>
 
 <h4>Name</h4>

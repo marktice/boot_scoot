@@ -1,5 +1,5 @@
 <% unless @car.car_image_data == nil %>  
-  <%= image_tag @car.car_image_url(:medium) %><br />
+  <%= image_tag @car.car_image_url(:medium), class: 'image', id: 'car_img' %><br />
 <% end %>
 
 <h4>Make</h4>
