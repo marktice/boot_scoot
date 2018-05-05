@@ -19,11 +19,11 @@
     <%= form.select :transmission, [nil, 'auto', 'manual'] %>
   </div>
 
-  <% unless @car.car_image_data == nil %>  
-    <%= image_tag @car.car_image_url(:thumb) %>
-  <% end %>
   <div class="form-field">
-    <%= form.label :car_image_data %>
+    <% unless @car.car_image_data == nil %>  
+      <%= image_tag @car.car_image_url(:medium) %><br />
+    <% end %>
+    <%= form.label :car_image %>
     <%= form.hidden_field :car_image, value: @car.cached_car_image_data %>
     <%= form.file_field :car_image %>
   </div>

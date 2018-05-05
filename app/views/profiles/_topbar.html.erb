@@ -1,6 +1,4 @@
 <ul>
-  <li><%= link_to 'Your Profile', profile_path %></li>
-
   <% if current_user.car == nil %>
     <li><%= link_to 'Add your car!', car_edit_path %></li>
   <% else %>

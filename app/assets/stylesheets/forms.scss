@@ -1,0 +1,46 @@
+@import '_variables';
+
+form {
+  width: 100%;
+  margin: auto;
+  padding-top: 2em;
+  padding-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+  label {
+    color: $primary;
+  }
+  input, textarea {
+    width: 100%;
+    font-size: 1em;
+    font-family: $content-font;
+    padding: 1em;
+    transition: all 0.4s ease-in-out;
+    margin-bottom: 3px;
+    border: 1px solid $dark-grey;
+    &:hover, &:focus {
+      background-color: $white;
+      color: $dark-grey;
+      outline: none;
+      border: 1px solid $primary;
+      box-shadow: 0 0 2px $primary;
+    }
+  }
+  textarea {
+    height: 10em;
+    resize: none;
+  }
+  .form-field {
+    margin-bottom: 1em;
+  }
+  .form-button {
+    width: 50%;
+    margin: 0 auto;
+    color: $white;
+    background-color: $dark-grey;
+    cursor: pointer;
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}

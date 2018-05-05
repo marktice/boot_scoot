@@ -1,27 +1,27 @@
 <%= form_for(@review, url: booking_reviews_path) do |form| %>
 
-  <% if current_user == @passenger %>
-    <% unless @driver.profile.avatar_image_data == nil %>
-      <%= image_tag @driver.profile.avatar_image_url(:thumb) %><br />
+  <div class="review-image-field">
+    <% if current_user == @passenger %>
+      <% unless @driver.profile.avatar_image_data == nil %>
+        <%= image_tag @driver.profile.avatar_image_url(:medium), id: 'review-image' %><br />
+      <% end %>
+      <h3><%= @driver.profile.first_name %></h3>
+    <% elsif current_user == @driver %>
+      <% unless @passenger.profile.avatar_image_data == nil %>
+        <%= image_tag @passenger.profile.avatar_image_url(:medium), id: 'review-image' %><br />
+      <% end %>
+      <h3><%= @passenger.profile.first_name %></h3>
     <% end %>
-    <%= @driver.profile.first_name %>
-  <% elsif current_user == @driver %>
-    <% unless @passenger.profile.avatar_image_data == nil %>
-      <%= image_tag @passenger.profile.avatar_image_url(:thumb) %><br />
-    <% end %>
-    <%= @passenger.profile.first_name %>
-  <% end %>
+  </div>
 
-  <div class="field">
+  <div class="form-field">
     <%= form.label :rating %>
     <%= form.number_field :rating, in: 1..5, step: 1, id: :review_rating %>
   </div>
 
-  <div class="field">
+  <div class="form-field">
     <%= form.text_area :content, placeholder: 'Comment', id: :review_content %>
   </div>
 
-  <div class="actions">
-    <%= form.submit :Review %>
-  </div>
+  <%= form.submit :Review, class: 'form-button' %>
 <% end %>
