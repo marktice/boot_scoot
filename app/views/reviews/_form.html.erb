@@ -1,16 +1,27 @@
 <%= form_for(@review, url: booking_reviews_path) do |form| %>
 
+  <% if current_user == @passenger %>
+    <% unless @driver.profile.avatar_image_data == nil %>
+      <%= image_tag @driver.profile.avatar_image_url(:thumb) %><br />
+    <% end %>
+    <%= @driver.profile.first_name %>
+  <% elsif current_user == @driver %>
+    <% unless @passenger.profile.avatar_image_data == nil %>
+      <%= image_tag @passenger.profile.avatar_image_url(:thumb) %><br />
+    <% end %>
+    <%= @passenger.profile.first_name %>
+  <% end %>
+
   <div class="field">
     <%= form.label :rating %>
     <%= form.number_field :rating, in: 1..5, step: 1, id: :review_rating %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :review_content %>
+    <%= form.text_area :content, placeholder: 'Comment', id: :review_content %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Review %>
   </div>
 <% end %>
