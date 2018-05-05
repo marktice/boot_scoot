@@ -2,12 +2,16 @@
   <%= image_tag @profile.avatar_image_url(:medium) %><br />
 <% end %>
 
-Name: <%= @profile.first_name %> <%= @profile.last_name %><br />
-Sex: <%= @profile.sex %><br />
-Phone Number: <%= @profile.phone_number %><br />
-Home Address: <%= @profile.home_address %><br />
-Latitude: <%= @profile.latitude %><br />
-Longitude: <%= @profile.longitude %><br />
+<h4>Name</h4>
+<%= @profile.first_name %> <%= @profile.last_name %>
+<h4>Sex</h4>
+<%= @profile.sex %>
+<h4>Phone number</h4>
+<%= @profile.phone_number %>
+<h4>Home address</h4>
+<%= @profile.home_address %>
 
-Passenger rating: <%= @profile.user.average_passenger_rating %><br />
-Driver rating: <%= @profile.user.average_driver_rating %><br />
+<h4>Passenger rating</h4>
+<%= @profile.user.average_passenger_rating %>
+<h4>Driver rating</h4>
+<%= @profile.user.average_driver_rating %>
