@@ -2,7 +2,9 @@
   <%= image_tag @driver_profile.transport_image_url(:medium) %><br />
 <% end %>
 
-Drivers Licence: <%= @driver_profile.drivers_licence %><br />
-Transport Type: <%= @driver_profile.transport_type %><br />
-Approved: <%= @driver_profile.approved %><br />
-Approved at: <%= @driver_profile.approved_at %><br />
+<h4>Drivers licence</h4>
+<%= @driver_profile.drivers_licence %>
+<h4>Transport type</h4>
+<%= @driver_profile.transport_type %>
+<h4>Driver since</h4>
+<%= @driver_profile.created_at %><br />
