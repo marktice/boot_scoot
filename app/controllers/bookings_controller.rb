@@ -1,11 +1,11 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.order('created_at ASC')
+    @bookings = Booking.where(driver: nil)
 
-    # pass all origin locations
+    # pass all origin locations for bookings where no driver
     @locations = []
-    Booking.all.each do |booking|
+    @bookings.each do |booking|
       unless booking.origin.nil?
       @locations.push({
         lat: booking.origin.latitude,

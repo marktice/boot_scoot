@@ -1,16 +1,16 @@
 <h1>Bookings</h1>
 
+<div id="map"></div>
+
 <% @bookings.each do |booking| %>
   <div>
     Passenger: <%= booking.passenger.profile.first_name %><br />
     Pickup: <%= booking.origin_address %><br />
+    Created_at: <%= time_ago_in_words(booking.created_at) %><br />
     <%= link_to 'Boot Scoot!', booking_path(booking), method: :patch %><br />
   </div>
   <hr>
 <% end %>
-
-
-<div id="map"></div>
 
 <%= javascript_tag do %>
 
