@@ -28,8 +28,8 @@ Distance: <%= sprintf("%0.2f", @booking.distance) %> km<br />
 Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
 
 <% if @booking.driver != nil %>  
-  <div class="form-button">
-    <%= link_to 'Complete', new_booking_review_path(@booking) %>
+  <div>
+    <%= link_to 'Complete', new_booking_review_path(@booking), class: 'form-button' %>
   </div>
 <% end %>
 

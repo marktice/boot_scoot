@@ -36,11 +36,10 @@ h1 {
   text-align: center;
   border-radius: 2px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  
-  // font-size: 2rem;
+  font-size: 0.875em; //10pt
 }
 .flash-success {
-  background-color: rgb(105, 209, 105);
+  background-color: rgb(156, 206, 156);
 }
 .flash-danger {
   background-color: rgb(163, 42, 42);

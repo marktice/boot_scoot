@@ -12,8 +12,8 @@ form {
   }
   input, textarea {
     width: 100%;
-    font-size: 1em;
-    font-family: $content-font;
+    font-size: 0.813em; //10pt
+    // font-family: $content-font;
     padding: 1em;
     transition: all 0.4s ease-in-out;
     margin-bottom: 3px;
@@ -35,16 +35,23 @@ form {
   .form-field {
     margin-bottom: 1em;
   }
-  .form-button {
-    width: 50%;
-    margin: 0 auto;
-    color: $white;
-    background-color: $primary;
-    border: none;
-    cursor: pointer;
-    &:hover {
-      color: $white;      
-      background-color: darken($color: $primary, $amount: 10)
-    }
+}
+.form-button {
+  width: 100px;
+  font-size: 0.813em; //10pt
+  // margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  padding: 1em;
+  display: block;
+  margin: 5px 0;
+  color: $white;
+  background-color: $primary;
+  border: none;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    color: $white;      
+    background-color: darken($color: $primary, $amount: 10)
   }
 }
