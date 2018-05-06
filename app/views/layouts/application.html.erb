@@ -4,6 +4,8 @@
     <title>BootScoot</title>
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Montserrat" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +15,7 @@
   <body>
     <%= render 'layouts/header' %>
     <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "flash-#{message_type}") %>
+      <%= content_tag(:div, message, class: "flash flash-#{message_type}") %>
     <% end %>
     <main><%= yield %></main>
     <%= render 'layouts/footer' %>
