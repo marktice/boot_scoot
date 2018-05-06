@@ -21,7 +21,7 @@
   
   <div class="form-field">
     <%= form.label :home_address %>
-    <%= form.text_field :home_address %>
+    <%= form.text_field :home_address, placeholder: 'Enter your home address', id: 'profile_home_address' %>
   </div>
   
   <div class="form-field">
@@ -35,3 +35,17 @@
   
   <%= form.submit :Submit, class: 'form-button' %>
 <% end %>
+
+<script>
+// autocomplete home address
+  var placeSearch, autocomplete;
+
+  function initAutocomplete() {
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */(document.getElementById('profile_home_address')),
+        {types: ['geocode'], componentRestrictions: {country: 'au'}});
+  }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV.fetch('GOOGLE_MAPS_API') %>&libraries=places&callback=initAutocomplete"
+    async defer></script>
