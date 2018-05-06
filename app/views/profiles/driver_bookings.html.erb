@@ -6,6 +6,6 @@
   Origin: <%= booking.origin_address %><br /> 
   Destination: <%= booking.destination_address %><br />
   Passenger: <%= booking.passenger.profile.first_name %><br />  
-  <%= link_to 'Show', booking_path(booking) %><br />
+  <%= link_to 'Show', booking_path(booking), class: 'main-button' %><br />
   <br />
 <% end %>

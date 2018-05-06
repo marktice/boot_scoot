@@ -29,7 +29,7 @@ Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
 
 <% if @booking.driver != nil %>  
   <div>
-    <%= link_to 'Complete', new_booking_review_path(@booking), class: 'form-button' %>
+    <%= link_to 'Complete', new_booking_review_path(@booking), class: 'main-button' %>
   </div>
 <% end %>
 

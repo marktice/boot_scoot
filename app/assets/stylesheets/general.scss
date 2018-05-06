@@ -31,11 +31,15 @@ h1 {
   // color: $white;
 }
 
+.spacer {
+  padding-top: 50px;
+}
+
 .flash {
   color: $white;
   text-align: center;
   border-radius: 2px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 10px rgba(0,0,0,0.16), 0 6px 6px rgba(0,0,0,0.19);
   font-size: 0.875em; //10pt
 }
 .flash-success {
@@ -54,7 +58,7 @@ main {
 }
 
 .image {
-  width: 200px;
-  height: 200px;
+  // width: 200px;
+  // height: 200px;
   border-radius: 50%;
 }
