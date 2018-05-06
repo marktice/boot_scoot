@@ -8,6 +8,9 @@
 .env.*
 .env
 
+# Ignore public/uploads (shrine uploaded files)
+/public/uploads/
+
 # Ignore bundler config.
 /.bundle
 
