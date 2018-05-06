@@ -52,9 +52,47 @@ class BookingsController < ApplicationController
     end
   end
 
+  # dont use atm
   # def edit
   #   @booking = Booking.new(booking_params)
   # end
+
+
+
+  # POST /sneakers/1/charge
+  def charge
+    @booking = Booking.find(params[:id])
+
+    if current_user.stripe_charge_id.blank?
+      customer = Stripe::Customer.create(
+        email:  params[:stripeEmail],
+        source: params[:stripeToken]
+      )
+      
+      # set user stripe id to the custome id retrieved from stripe
+      current_user.stripe_charge_id = customer.id
+      current_user.save! #bad, doesn't handle error
+    end
+    
+    charge = Stripe::Charge.create(
+      customer:     current_user.stripe_charge_id,
+      amount:       @booking.cost_in_cents.to_i,
+      description:  "Boot Scoot",
+      currency:     'aud'
+    )
+    
+    # Make a Charge model 
+    # current_user.charges << Charge.new(charge_id: charge.id)
+
+    flash[:notice] = 'Payment made!'
+    redirect_back fallback_location: bookings_path
+
+      
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_back fallback_location: bookings_path
+
+  end
 
   def update
     @booking = Booking.find(params[:id])

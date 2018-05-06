@@ -11,6 +11,7 @@ gem 'geocoder', '~> 1.4', '>= 1.4.7'
 gem 'shrine', '~> 2.11'
 gem "image_processing", "~> 1.0"
 gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
+gem 'stripe', '~> 3.13'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

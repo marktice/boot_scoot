@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   patch '/driver',              to: 'driver_profiles#update'
 
   resources :bookings do
+    member do
+      # /booking/:id/charge
+      post 'charge'
+    end
     resources :reviews, only: [:new, :create, :show]
   end
 end

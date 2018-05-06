@@ -19,9 +19,12 @@
 <% end %>
 Distance: <%= sprintf("%0.2f", @booking.distance) %> km<br />
 Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
-<hr>
-
 Status: <%= @booking.status %><br />
+
+
+<%= render 'charge_form', booking: @booking %>
+
+
 <!--
 Origin(from booking): <%= @booking.origin_address %><br />
 Origin(from location): <%= @booking.origin.address %><br />

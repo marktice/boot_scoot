@@ -12,7 +12,7 @@ class Booking < ApplicationRecord
   #   @_distance ||= self.origin.distance_from(self.destination.to_coordinates)
   # end
   
-  # def cost
-  #   @_cost ||= 8 + distance * 3
-  # end
+  def cost_in_cents
+    cost*100
+  end
 end
