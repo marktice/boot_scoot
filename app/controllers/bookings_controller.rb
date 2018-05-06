@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
       @booking.distance = @booking.origin.distance_from(@booking.destination.to_coordinates)
       @booking.cost = 8.50 + @booking.distance * 2.75
 
-      @booking.status = 'Pending payment'
+      @booking.status = 'Booking created, pending payment'
       
       if @booking.save!
         flash[:success] = 'Booking created, confirm to pay'
@@ -105,9 +105,9 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     # driver accepts and updates booking
     @booking.driver = current_user
-    @booking.status = "Driver on his way"
+    @booking.status = "Driver found, on his way to pickup location"
     if @booking.save!
-      flash[:success] = "Booking accepted, goto pickup location"
+      flash[:success] = "Booking accepted, make your way to the pickup location"
       redirect_to @booking
     else
       flash[:danger] = "Could not accept booking"
@@ -115,6 +115,7 @@ class BookingsController < ApplicationController
     end
   end
 
+  # currently not used
   def destroy
     @booking = Booking.find(params[:id])
     if @booking.destroy

@@ -1,31 +1,39 @@
 <h1>Booking</h1>
+<p>Status: <%= @booking.status %></p>
+
+<% if @booking.payed_at.nil? %>
+  <%= render 'charge_form', booking: @booking %>
+<% end %>
 
 <div id="map"></div>
 <div id="driver-panel"></div>
-<% if @booking.driver != nil %>  
-  <%= link_to 'Complete', new_booking_review_path(@booking) %><br />
-<% end %>
 
+<%# Show OTHER users details %>
 <% if current_user == @booking.passenger %>
+  <%# check if theres no driver %>
   <% if @booking.driver != nil %>
+    <%# check that driver has an image (will break if doesnt) %>
     <%= image_tag @booking.driver.profile.avatar_image_url(:thumb) if @booking.driver.profile.avatar_image_data != nil %><br />
-    Your driver: <%= @booking.driver.profile.first_name %><br />
-    Rating : <%= sprintf("%0.2f", @booking.driver.average_driver_rating) %><br />
+    Driver: <%= @booking.driver.profile.first_name %><br />
+    Rating: <%= sprintf("%0.2f", @booking.driver.average_driver_rating) %><br />
   <% end %>
+
 <% elsif current_user == @booking.driver %>
   <%= image_tag @booking.passenger.profile.avatar_image_url(:thumb) if @booking.passenger.profile.avatar_image_data != nil %><br />
-  Your passenger: <%= @booking.passenger.profile.first_name %><br />
-  Rating : <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %><br />
+  Passenger: <%= @booking.passenger.profile.first_name %><br />
+  Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %><br />
 <% end %>
+
 Distance: <%= sprintf("%0.2f", @booking.distance) %> km<br />
 Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
-Status: <%= @booking.status %><br />
 
+<% if @booking.driver != nil %>  
+  <div class="form-button">
+    <%= link_to 'Complete', new_booking_review_path(@booking) %>
+  </div>
+<% end %>
 
-<%= render 'charge_form', booking: @booking %>
-
-
-<!--
+<!-- Other details not needed to be displayed
 Origin(from booking): <%= @booking.origin_address %><br />
 Origin(from location): <%= @booking.origin.address %><br />
 Latitude: <%= @booking.origin.latitude %><br />
@@ -36,8 +44,6 @@ Destination(from location): <%= @booking.destination.address %><br />
 Latitude: <%= @booking.destination.latitude %><br />
 Longitude: <%= @booking.destination.longitude %><br />
 -->
-
-
 
 <%= javascript_tag do %>
   function initMap() {

@@ -6,6 +6,18 @@ class ReviewsController < ApplicationController
 
   def new
     booking = Booking.find(params[:booking_id])
+    
+    if booking.completed_at.nil?
+      booking.completed_at = Time.now
+      booking.status = "Booking completed"
+      if booking.save!
+        flash.now[:success] = "Booking completed, review your trip"
+      else
+        flash[:danger] = "Could not complete booking"
+        redirect_back fallback_location: root_path
+      end
+    end
+
     @passenger = booking.passenger
     @driver = booking.driver
     @review = booking.reviews.build

@@ -27,7 +27,6 @@ Rails.application.routes.draw do
 
   resources :bookings do
     member do
-      # /booking/:id/charge
       post 'charge'
     end
     resources :reviews, only: [:new, :create, :show]
