@@ -26,7 +26,8 @@
 
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -37.8182119, lng: 144.9543325},
-      zoom: 13
+      zoom: 13,
+      styles: <%= render 'map_style' %>
     });
 
     // markers for each location
