@@ -1,12 +1,11 @@
-<h1>Booking</h1>
 <p>Status: <%= @booking.status %></p>
+
+Distance: <%= sprintf("%0.2f", @booking.distance) %> km<br />
+Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
 
 <% if @booking.payed_at.nil? %>
   <%= render 'charge_form', booking: @booking %>
 <% end %>
-
-<div id="map"></div>
-<div id="driver-panel"></div>
 
 <%# Show OTHER users details %>
 <% if current_user == @booking.passenger %>
@@ -24,14 +23,14 @@
   Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %><br />
 <% end %>
 
-Distance: <%= sprintf("%0.2f", @booking.distance) %> km<br />
-Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
-
 <% if @booking.driver != nil %>  
   <div>
     <%= link_to 'Complete', new_booking_review_path(@booking), class: 'main-button' %>
   </div>
 <% end %>
+
+<div id="map"></div>
+<div id="driver-panel"></div>
 
 <!-- Other details not needed to be displayed
 Origin(from booking): <%= @booking.origin_address %><br />
