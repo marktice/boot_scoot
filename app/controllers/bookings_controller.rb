@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.where(driver: nil)
+    @bookings = Booking.where(driver: nil).where.not(payed_at: nil)
+    # or just Booking.where(status: "Payment received, looking for driver")
 
     # pass all origin locations for bookings where no driver
     @locations = []
@@ -40,9 +41,11 @@ class BookingsController < ApplicationController
       # calculate and set distance and cost
       @booking.distance = @booking.origin.distance_from(@booking.destination.to_coordinates)
       @booking.cost = 8.50 + @booking.distance * 2.75
+
+      @booking.status = 'Pending payment'
       
       if @booking.save!
-        flash[:success] = 'Booking created, looking for a driver'
+        flash[:success] = 'Booking created, confirm to pay'
         redirect_to @booking
       else
         flash.now[:danger] = 'Could not create booking'
@@ -59,7 +62,7 @@ class BookingsController < ApplicationController
 
 
 
-  # POST /sneakers/1/charge
+  # POST /bookings/1/charge
   def charge
     @booking = Booking.find(params[:id])
 
@@ -84,9 +87,13 @@ class BookingsController < ApplicationController
     # Make a Charge model 
     # current_user.charges << Charge.new(charge_id: charge.id)
 
-    flash[:notice] = 'Payment made!'
-    redirect_back fallback_location: bookings_path
+    # update booking
+    @booking.payed_at = Time.now
+    @booking.status = "Payment received, looking for driver"
+    @booking.save! #bad, doesn't handle error
 
+    flash[:success] = 'Payment made'
+    redirect_to @booking
       
     rescue Stripe::CardError => e
       flash[:error] = e.message
