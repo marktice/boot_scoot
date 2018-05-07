@@ -21,8 +21,8 @@ class ReviewsController < ApplicationController
       end
     end
 
-    @passenger = booking.passenger
-    @driver = booking.driver
+    # passenger = booking.passenger
+    # driver = booking.driver
     @review = booking.reviews.build
 
     # authorize
@@ -57,7 +57,7 @@ class ReviewsController < ApplicationController
     # puts current_user.email
     # authorize @review
 
-    if @review.save!
+    if @review.save
       flash[:success] = 'Review submitted, thankyou for your feedback'
       redirect_to root_path
     else

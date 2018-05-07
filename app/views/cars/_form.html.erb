@@ -1,22 +1,27 @@
 <%= form_with model: @car, url: car_path, local: true do |form| %>
+
   <div class="form-field">
     <%= form.label :make %>
     <%= form.text_field :make %>
+    <span class="error-msg"><%= display_errors(@car, :make) %></span>
   </div>
   
   <div class="form-field">
     <%= form.label :model %>
     <%= form.text_field :model %>
+    <span class="error-msg"><%= display_errors(@car, :model) %></span>
   </div>
   
   <div class="form-field">
     <%= form.label :number_plate %>
     <%= form.text_field :number_plate %>
+    <span class="error-msg"><%= display_errors(@car, :number_plate) %></span>
   </div>
   
   <div class="form-field">
     <%= form.label :transmission %>
     <%= form.select :transmission, [nil, 'auto', 'manual'] %>
+    <span class="error-msg"><%= display_errors(@car, :transmission) %></span>
   </div>
 
   <div class="form-field">

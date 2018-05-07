@@ -1,11 +1,11 @@
 <h1>Request a driver</h1>
 <%= form_for @booking do |f| %>
   <div class="form-field">
-    <%= f.text_field :origin_address, placeholder: "Enter origin address" %>
+    <%= f.text_field :origin_address, placeholder: "Enter origin address", required: true %>
   </div>
   
   <div class="form-field">
-    <%= f.text_field :destination_address, placeholder: "Enter destination address" %>
+    <%= f.text_field :destination_address, placeholder: "Enter destination address", value: current_user.profile.home_address, required: true %>
   </div>
   <%#Wont autocomplete with:    , value: current_user.profile.home_address %>
 

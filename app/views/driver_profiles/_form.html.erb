@@ -2,11 +2,13 @@
   <div class="form-field">
     <%= form.label :drivers_licence %>
     <%= form.text_field :drivers_licence %>
+    <span class="error-msg"><%= display_errors(@driver_profile, :drivers_licence) %></span>
   </div>
   
   <div class="form-field">
     <%= form.label :transport_type %>
     <%= form.select :transport_type, [nil, 'small/foldable scooter', 'foldable bike', 'skateboard', 'segway', 'other'] %>
+    <span class="error-msg"><%= display_errors(@driver_profile, :transport_type) %></span>
   </div>
 
   <div class="form-field">

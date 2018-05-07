@@ -1,27 +1,32 @@
 <%= form_with model: @profile, url: profile_path, local: true do |form| %>
   <div class="form-field">
     <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, required: true %>
+    <span class="error-msg"><%= display_errors(@profile, :first_name) %></span>
   </div>
   
   <div class="form-field">
     <%= form.label :last_name %>
     <%= form.text_field :last_name %>
+    <span class="error-msg"><%= display_errors(@profile, :last_name) %></span>
   </div>
   
   <div class="form-field">
     <%= form.label :sex %>
     <%= form.select :sex, [nil, 'male', 'female', 'other'] %>
+    <span class="error-msg"><%= display_errors(@profile, :sex) %></span>
   </div>
   
   <div class="form-field">
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number %>
+    <span class="error-msg"><%= display_errors(@profile, :phone_number) %></span>
   </div>
   
   <div class="form-field">
     <%= form.label :home_address %>
     <%= form.text_field :home_address, placeholder: 'Enter your home address', id: 'profile_home_address' %>
+    <span class="error-msg"><%= display_errors(@profile, :home_address) %></span>
   </div>
   
   <div class="form-field">

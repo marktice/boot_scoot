@@ -2,12 +2,12 @@
 <%= form_for :contact do |f| %>
   <div class="form-field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
 
   <div class="form-field">
     <%= f.label :message %>
-    <%= f.text_area :message %>
+    <%= f.text_area :message, required: true %>
   </div>
   
   <%= f.submit :Submit, class: 'main-button' %>
