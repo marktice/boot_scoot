@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :reviews_of,         class_name: 'Review',   foreign_key: 'reviewee_id'
   has_many :reviews_by,         class_name: 'Review',   foreign_key: 'reviewer_id'
 
+
   def reviews_as_driver
     @_driver_reviews ||= self.reviews_of.select do |review|
       review.booking.driver == self

@@ -1,0 +1,13 @@
+<% if current_user == @booking.passenger %>
+  <% unless @booking.driver.nil? %>
+    <%= image_tag display_avatar(@booking.driver, :thumb), class: 'image', id: 'avatar_thumb' %>
+    <p>Driver: <%= @booking.driver.profile.first_name %></p>
+    <p>Rating: <%= sprintf("%0.2f", @booking.driver.average_driver_rating) %></p>
+    <p>Phone number: <%= @booking.driver.profile.phone_number %></p>
+  <% end %>
+<% elsif current_user == @booking.driver %>
+  <%= image_tag display_avatar(@booking.passenger, :thumb), class: 'image', id: 'avatar_thumb' %>
+  <p>Passenger: <%= @booking.passenger.profile.first_name %></p>
+  <p>Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></p>
+  <p>Phone number: <%= @booking.passenger.profile.phone_number %></p>
+<% end %>

@@ -9,4 +9,13 @@ module ApplicationHelper
       return messages.join('<br>').html_safe
     end
   end
+
+  def display_avatar(user, size)
+    if user.profile.avatar_image_data.nil?
+      "avatar_image/missing.jpg"
+    else
+      user.profile.avatar_image_url(size)
+    end
+  end
+
 end

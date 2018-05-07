@@ -7,21 +7,7 @@
   <%= render 'charge_form', booking: @booking %>
 <% end %>
 
-<%# Show OTHER users details %>
-<% if current_user == @booking.passenger %>
-  <%# check if theres no driver %>
-  <% unless @booking.driver.nil? %>
-    <%# check that driver has an image (will break if doesnt) %>
-    <%= image_tag @booking.driver.profile.avatar_image_url(:thumb) if @booking.driver.profile.avatar_image_data != nil %><br />
-    <p>Driver: <%= @booking.driver.profile.first_name %></p>
-    <p>Rating: <%= sprintf("%0.2f", @booking.driver.average_driver_rating) %></p>
-  <% end %>
-
-<% elsif current_user == @booking.driver %>
-  <%= image_tag @booking.passenger.profile.avatar_image_url(:thumb) if @booking.passenger.profile.avatar_image_data != nil %><br />
-  <p>Passenger: <%= @booking.passenger.profile.first_name %></p>
-  <p>Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></p>
-<% end %>
+<%= render 'user_card' %>
 
 <% unless @booking.driver.nil? %>
   <div>
