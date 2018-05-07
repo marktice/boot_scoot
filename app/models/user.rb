@@ -14,24 +14,32 @@ class User < ApplicationRecord
   has_many :reviews_of,         class_name: 'Review',   foreign_key: 'reviewee_id'
   has_many :reviews_by,         class_name: 'Review',   foreign_key: 'reviewer_id'
 
-  
-  def average_passenger_rating
-    ratings = []
-    self.reviews_of.each do |review|
-      if review.booking.passenger == self
-        ratings << review.rating
-      end
+  def reviews_as_driver
+    @_driver_reviews ||= self.reviews_of.select do |review|
+      review.booking.driver == self
     end
-    ratings.sum.to_f / ratings.length
+  end
+
+  def reviews_as_passenger
+    @_passenger_reviews ||= self.reviews_of.select do |review|
+      review.booking.passenger == self
+    end
+  end
+
+  def average_passenger_rating
+    ratings = reviews_as_passenger.pluck(:rating)
+    @_average_passenger_rating ||= average_rating(ratings)
   end
 
   def average_driver_rating
-    ratings = []
-    self.reviews_of.each do |review|
-      if review.booking.driver == self
-        ratings << review.rating
-      end
-    end
+    ratings = reviews_as_driver.pluck(:rating)
+    @_average_driver_rating ||= average_rating(ratings)
+  end
+
+  private
+
+  def average_rating(ratings)
+    return 0 if ratings.empty?
     ratings.sum.to_f / ratings.length
   end
 
