@@ -13,7 +13,7 @@ gem "image_processing", "~> 1.0"
 gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
 gem 'stripe', '~> 3.13'
 gem 'pundit', '~> 1.1'
-
+gem 'pry'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
@@ -51,7 +51,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'pry'
 end
 
 group :test do
