@@ -2,23 +2,27 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(driver: nil).where.not(payed_at: nil)
-    # or just Booking.where(status: "Payment received, looking for driver")
-
+    if current_user.driver_profile.nil?
+      redirect_to driver_edit_path
+      flash[:danger] = 'Apply to be a driver to accept bookings'
+    else
     # pass all origin locations for bookings where no driver
-    @locations = []
-    @bookings.each do |booking|
-      unless booking.origin.nil?
-      @locations.push({
-        lat: booking.origin.latitude,
-        lng: booking.origin.longitude,
-        name: booking.passenger.profile.first_name
-      })
+      @locations = []
+      @bookings.each do |booking|
+        unless booking.origin.nil?
+        @locations.push({
+          lat: booking.origin.latitude,
+          lng: booking.origin.longitude,
+          name: booking.passenger.profile.first_name
+        })
+        end
       end
     end
   end
 
   def show
     @booking = Booking.find(params[:id])
+    # authorize user either booking passenger or driver
     authorize @booking
   end
   
@@ -27,24 +31,20 @@ class BookingsController < ApplicationController
   end
 
   def create
-    if current_user.car == nil
+    @booking = Booking.new(booking_params)
+    if current_user.car.nil?
       redirect_to car_edit_path
       flash[:danger] = 'You require a car to make a booking'
-    else      
-      @booking = Booking.new(booking_params)
-
+    else
       # create and add locations
       @booking.origin = Location.create(address: booking_params[:origin_address])
       @booking.destination = Location.create(address: booking_params[:destination_address])
       # passenger creates bookings
       @booking.passenger = current_user
-
       # calculate and set distance and cost
       @booking.distance = @booking.origin.distance_from(@booking.destination.to_coordinates)
       @booking.cost = 8.50 + @booking.distance * 2.75
-
       @booking.status = 'Booking created, pending payment'
-      
       if @booking.save!
         flash[:success] = 'Booking created, confirm to pay'
         redirect_to @booking
@@ -52,7 +52,6 @@ class BookingsController < ApplicationController
         flash.now[:danger] = 'Could not create booking'
         render :new
       end
-      
     end
   end
 
@@ -60,8 +59,6 @@ class BookingsController < ApplicationController
   # def edit
   #   @booking = Booking.new(booking_params)
   # end
-
-
 
   # POST /bookings/1/charge
   def charge
@@ -72,8 +69,7 @@ class BookingsController < ApplicationController
         email:  params[:stripeEmail],
         source: params[:stripeToken]
       )
-      
-      # set user stripe id to the custome id retrieved from stripe
+      # set user stripe_charge_id to the customer id retrieved from stripe
       current_user.stripe_charge_id = customer.id
       current_user.save! #bad, doesn't handle error
     end
@@ -84,9 +80,6 @@ class BookingsController < ApplicationController
       description:  "Boot Scoot",
       currency:     'aud'
     )
-    
-    # Make a Charge model 
-    # current_user.charges << Charge.new(charge_id: charge.id)
 
     # update booking
     @booking.payed_at = Time.now
