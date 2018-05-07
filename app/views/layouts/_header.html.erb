@@ -1,5 +1,6 @@
 <header>
-  <nav>
+  <nav role="navigation">
+    <%= render 'layouts/hamburger' %>
     <div id="nav-logo"><%= link_to 'Boot Scoot', root_path %></div>
     <% if user_signed_in? %>
       <div class="nav-links">
