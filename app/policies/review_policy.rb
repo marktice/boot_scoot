@@ -23,4 +23,8 @@ class ReviewPolicy < ApplicationPolicy
     # currently doesnt work!
     # new?
   end
+
+  def show?
+    user == record.reviewee
+  end
 end
