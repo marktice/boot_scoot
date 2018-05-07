@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
   def new
     booking = Booking.find(params[:booking_id])
     
+    # complete booking
     if booking.completed_at.nil?
       booking.completed_at = Time.now
       booking.status = "Booking completed"
@@ -21,6 +22,14 @@ class ReviewsController < ApplicationController
     @passenger = booking.passenger
     @driver = booking.driver
     @review = booking.reviews.build
+
+    # authorize
+    # puts @review
+    # puts @review.booking
+    # puts @review.booking.driver.email
+    # puts @review.booking.passenger.email
+    # puts current_user.email
+    authorize @review
   end
 
   def create
@@ -37,6 +46,14 @@ class ReviewsController < ApplicationController
     elsif current_user == driver
       @review.reviewee = passenger
     end
+
+    #authorize
+    # puts @review
+    # puts @review.booking
+    # puts @review.booking.driver.email
+    # puts @review.booking.passenger.email
+    # puts current_user.email
+    # authorize @review
 
     if @review.save!
       flash[:success] = 'Review submitted, thankyou for your feedback'
