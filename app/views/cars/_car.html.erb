@@ -1,12 +1,12 @@
-<% unless @car.car_image_data == nil %>  
+<% unless @car.car_image_data.nil? %>  
   <%= image_tag @car.car_image_url(:medium), class: 'image', id: 'car_img' %><br />
 <% end %>
 
 <h4>Make</h4>
-<%= @car.make %>
+<p><%= @car.make %></p>
 <h4>Model</h4>
-<%= @car.model %>
+<p><%= @car.model %></p>
 <h4>Number plate</h4>
-<%= @car.number_plate %>
+<p><%= @car.number_plate %></p>
 <h4>Transmission</h4>
-<%= @car.transmission %>
+<p><%= @car.transmission %></p>

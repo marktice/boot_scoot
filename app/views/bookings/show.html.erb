@@ -1,7 +1,7 @@
 <p>Status: <%= @booking.status %></p>
 
-Distance: <%= sprintf("%0.2f", @booking.distance) %> km<br />
-Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
+<p>Distance: <%= sprintf("%0.2f", @booking.distance) %> km</p>
+<p>Cost: $<%= sprintf("%0.2f", @booking.cost) %></p>
 
 <% if @booking.payed_at.nil? %>
   <%= render 'charge_form', booking: @booking %>
@@ -10,20 +10,20 @@ Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
 <%# Show OTHER users details %>
 <% if current_user == @booking.passenger %>
   <%# check if theres no driver %>
-  <% if @booking.driver != nil %>
+  <% unless @booking.driver.nil? %>
     <%# check that driver has an image (will break if doesnt) %>
     <%= image_tag @booking.driver.profile.avatar_image_url(:thumb) if @booking.driver.profile.avatar_image_data != nil %><br />
-    Driver: <%= @booking.driver.profile.first_name %><br />
-    Rating: <%= sprintf("%0.2f", @booking.driver.average_driver_rating) %><br />
+    <p>Driver: <%= @booking.driver.profile.first_name %></p>
+    <p>Rating: <%= sprintf("%0.2f", @booking.driver.average_driver_rating) %></p>
   <% end %>
 
 <% elsif current_user == @booking.driver %>
   <%= image_tag @booking.passenger.profile.avatar_image_url(:thumb) if @booking.passenger.profile.avatar_image_data != nil %><br />
-  Passenger: <%= @booking.passenger.profile.first_name %><br />
-  Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %><br />
+  <p>Passenger: <%= @booking.passenger.profile.first_name %></p>
+  <p>Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></p>
 <% end %>
 
-<% if @booking.driver != nil %>  
+<% unless @booking.driver.nil? %>
   <div>
     <%= link_to 'Complete', new_booking_review_path(@booking), class: 'main-button' %>
   </div>
@@ -31,18 +31,6 @@ Cost: $<%= sprintf("%0.2f", @booking.cost) %><br />
 
 <div id="map"></div>
 <div id="driver-panel"></div>
-
-<!-- Other details not needed to be displayed
-Origin(from booking): <%= @booking.origin_address %><br />
-Origin(from location): <%= @booking.origin.address %><br />
-Latitude: <%= @booking.origin.latitude %><br />
-Longitude: <%= @booking.origin.longitude %><br />
-
-Destination(from booking): <%= @booking.destination_address %><br />
-Destination(from location): <%= @booking.destination.address %><br />
-Latitude: <%= @booking.destination.latitude %><br />
-Longitude: <%= @booking.destination.longitude %><br />
--->
 
 <%= javascript_tag do %>
   function initMap() {

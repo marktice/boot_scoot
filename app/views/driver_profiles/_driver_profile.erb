@@ -1,10 +1,10 @@
-<% unless @driver_profile.transport_image_data == nil %>
+<% unless @driver_profile.transport_image_data.nil? %>
   <%= image_tag @driver_profile.transport_image_url(:medium), class: 'image', id: 'driver_profile_img' %><br />
 <% end %>
 
 <h4>Drivers licence</h4>
-<%= @driver_profile.drivers_licence %>
+<p><%= @driver_profile.drivers_licence %></p>
 <h4>Transport type</h4>
-<%= @driver_profile.transport_type %>
+<p><%= @driver_profile.transport_type %></p>
 <h4>Driver since</h4>
-<%= @driver_profile.created_at %><br />
+<p><%= @driver_profile.created_at %></p>

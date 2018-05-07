@@ -30,7 +30,7 @@
   </div>
   
   <div class="form-field">
-    <% unless @profile.avatar_image_data == nil %>  
+    <% unless @profile.avatar_image_data.nil? %>  
       <%= image_tag @profile.avatar_image_url(:medium) %><br />
     <% end %>
     <%= form.label :avatar %>
