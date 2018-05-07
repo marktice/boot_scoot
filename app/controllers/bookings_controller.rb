@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
       @booking.distance = @booking.origin.distance_from(@booking.destination.to_coordinates)
       @booking.cost = 8.50 + @booking.distance * 2.75
       @booking.status = 'Booking created, pending payment'
-      if @booking.save!
+      if @booking.save
         flash[:success] = 'Booking created, confirm to pay'
         redirect_to @booking
       else
@@ -100,7 +100,7 @@ class BookingsController < ApplicationController
     # driver accepts and updates booking
     @booking.driver = current_user
     @booking.status = "Driver found, on his way to pickup location"
-    if @booking.save!
+    if @booking.save
       flash[:success] = "Booking accepted, make your way to the pickup location"
       redirect_to @booking
     else

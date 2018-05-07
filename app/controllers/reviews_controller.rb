@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
   
+  # do i need this?? why need to show a review, what circumstance
   def show
     @review = Review.find(params[:id])
-
     authorize @review
   end
 
@@ -20,17 +20,7 @@ class ReviewsController < ApplicationController
         redirect_back fallback_location: root_path
       end
     end
-
-    # passenger = booking.passenger
-    # driver = booking.driver
     @review = booking.reviews.build
-
-    # authorize
-    # puts @review
-    # puts @review.booking
-    # puts @review.booking.driver.email
-    # puts @review.booking.passenger.email
-    # puts current_user.email
     authorize @review
   end
 
@@ -49,7 +39,7 @@ class ReviewsController < ApplicationController
       @review.reviewee = passenger
     end
 
-    #authorize
+    #authorize WONT WORK WHEN PRESSING BACK>!>!>
     # puts @review
     # puts @review.booking
     # puts @review.booking.driver.email
