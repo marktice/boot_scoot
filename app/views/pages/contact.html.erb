@@ -1,8 +1,8 @@
 <h1>Contact Us</h1>
 <%= form_for :contact do |f| %>
   <div class="form-field">
-    <%= f.label :name %>
-    <%= f.text_field :name, required: true %>
+    <%= f.label :contact_reason %><br />
+    <%= f.select :name, [nil, 'Incorrect payment', 'Report an incident', 'Car accident', 'Site/app bug'], required: true %>
   </div>
 
   <div class="form-field">
