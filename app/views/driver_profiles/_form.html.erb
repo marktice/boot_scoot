@@ -6,13 +6,13 @@
   </div>
   
   <div class="form-field">
-    <%= form.label :transport_type %>
+    <%= form.label :transport_type %><br />
     <%= form.select :transport_type, [nil, 'small/foldable scooter', 'foldable bike', 'skateboard', 'segway', 'other'] %>
     <span class="error-msg"><%= display_errors(@driver_profile, :transport_type) %></span>
   </div>
 
   <div class="form-field">
-    <% unless @driver_profile.transport_image_data == nil %>  
+    <% unless @driver_profile.transport_image_data.nil? %>
       <%= image_tag @driver_profile.transport_image_url(:medium) %><br />
     <% end %>
     <%= form.label :transport_image %>

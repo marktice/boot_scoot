@@ -19,13 +19,13 @@
   </div>
   
   <div class="form-field">
-    <%= form.label :transmission %>
+    <%= form.label :transmission %><br />
     <%= form.select :transmission, [nil, 'auto', 'manual'] %>
     <span class="error-msg"><%= display_errors(@car, :transmission) %></span>
   </div>
 
   <div class="form-field">
-    <% unless @car.car_image_data == nil %>  
+    <% unless @car.car_image_data.nil? %>  
       <%= image_tag @car.car_image_url(:medium) %><br />
     <% end %>
     <%= form.label :car_image %>

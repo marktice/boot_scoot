@@ -12,7 +12,7 @@
   </div>
   
   <div class="form-field">
-    <%= form.label :sex %>
+    <%= form.label :sex %><br />
     <%= form.select :sex, [nil, 'male', 'female', 'other'] %>
     <span class="error-msg"><%= display_errors(@profile, :sex) %></span>
   </div>
