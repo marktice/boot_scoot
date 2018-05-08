@@ -29,7 +29,7 @@ nav {
   a
   {
     text-decoration: none;
-    color: $dark-grey;
+    color: $off-white;
     
     transition: color 0.3s ease;
   }
@@ -133,8 +133,8 @@ nav {
   //  padding-top: 10px;
   //  padding-bottom: 10px;
 
-   background: $off-white;
-   opacity: 0.90;
+   background: $dark-grey;
+   opacity: 0.95;
 
    list-style-type: none;
    -webkit-font-smoothing: antialiased;
