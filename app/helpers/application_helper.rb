@@ -1,5 +1,15 @@
 module ApplicationHelper
 
+  def has_reviewed?(booking)
+    reviewed = false
+    booking.reviews.each do |review|
+      if current_user == review.reviewer
+        reviewed = true
+      end
+    end
+    reviewed
+  end
+
   def display_errors(model, field)
     messages = []
     if model.errors[field].present?

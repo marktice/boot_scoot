@@ -10,9 +10,9 @@
 <%= render 'user_card' %>
 
 <% unless @booking.driver.nil? %>
-  <div>
-    <%= link_to 'Complete', new_booking_review_path(@booking), class: 'main-button' %>
-  </div>
+  <% unless has_reviewed?(@booking) %>
+    <div><%= link_to 'Complete', new_booking_review_path(@booking), class: 'main-button' %></div>
+  <% end %>
 <% end %>
 
 <div id="map"></div>

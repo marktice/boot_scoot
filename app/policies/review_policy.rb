@@ -7,7 +7,7 @@ class ReviewPolicy < ApplicationPolicy
 
   def new?
     booking = record.booking
-
+    
     # check if already have a review
     hasnt_reviewed = true
     booking.reviews.each do |review|
