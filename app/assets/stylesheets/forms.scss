@@ -56,11 +56,11 @@ form {
   }
 }
 
-.field_with_errors {
-  color: rgb(163, 42, 42);
-}
-
 .error-msg {
   font-size: 0.813em;
-  color: red;
+  color: $secondary;
 }
+
+// select {
+  // width: 500px;
+// }

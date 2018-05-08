@@ -48,8 +48,15 @@ class ReviewsController < ApplicationController
     # authorize @review
 
     if @review.save
-      flash[:success] = 'Review submitted, thankyou for your feedback'
-      redirect_to root_path
+      # if <= 2 redirect to contact form
+      if @review.rating >= 3
+        flash[:success] = 'Review submitted, thankyou for your feedback'
+        redirect_to root_path
+      else
+        flash[:notice] = 'Did something go wrong? Let us know how we can help'
+        redirect_to contact_path
+      end
+
     else
       flash.now[:danger] = 'Could not submit review'
       render 'new'

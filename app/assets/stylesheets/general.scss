@@ -46,7 +46,10 @@ h1 {
   background-color: $light-green;
 }
 .flash-danger {
-  background-color: rgb(163, 42, 42);
+  background-color: $secondary;
+}
+.flash-notice {
+  background-color: $medium-grey;
 }
 
 main {

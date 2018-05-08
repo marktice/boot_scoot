@@ -3,12 +3,14 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @bookings = (Booking.where(passenger: current_user).or(Booking.where(driver: current_user))).order("created_at DESC")
   end
 
   def contact_email
     email_info = {
       user: current_user, 
-      name: email_params[:name],
+      contact_reason: email_params[:contact_reason],
+      booking: email_params[:booking],
       message: email_params[:message]
     }
 
@@ -23,6 +25,6 @@ class PagesController < ApplicationController
 
   private
   def email_params
-    params.require(:contact).permit(:name, :message)
+    params.require(:contact).permit(:contact_reason, :booking, :message)
   end
 end

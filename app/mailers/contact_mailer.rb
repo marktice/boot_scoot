@@ -1,7 +1,8 @@
 class ContactMailer < ApplicationMailer
   def send_contact_email(email_info)
     @user = email_info[:user]
-    @name = email_info[:name]
+    @contact_reason = email_info[:contact_reason]
+    @booking = email_info[:booking]
     @message = email_info[:message]
 
     email = ENV.fetch('SYSTEM_EMAIL')

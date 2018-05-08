@@ -6,7 +6,10 @@ class Profile < ApplicationRecord
   geocoded_by :home_address
   after_validation :geocode
 
-  validates :first_name, :last_name, :sex, presence: true
+  validates :first_name, :last_name, presence: true
+
+  validates :sex, presence: true, 
+            inclusion: { in: %w(male female other) }
 
   validates :home_address, presence: true
 

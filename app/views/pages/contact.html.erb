@@ -2,7 +2,12 @@
 <%= form_for :contact do |f| %>
   <div class="form-field">
     <%= f.label :contact_reason %><br />
-    <%= f.select :name, [nil, 'Incorrect payment', 'Report an incident', 'Car accident', 'Site/app bug'], required: true %>
+    <%= f.select :contact_reason, [nil, 'Incorrect payment', 'Report an incident', 'Car accident', 'Site/app bug'], required: true %>
+  </div>
+
+  <div class="form-field">
+    <%= f.label :booking %><br />
+    <%= f.collection_select :booking, @bookings, :id, :created_at, include_blank: true %>
   </div>
 
   <div class="form-field">

@@ -3,6 +3,8 @@ class Car < ApplicationRecord
 
   include ImageUploader::Attachment.new(:car_image)
 
-  validates :make, :model, :number_plate, :transmission, presence: true
+  validates :make, :model, :number_plate, presence: true
 
+  validates :transmission, presence: true, 
+            inclusion: { in: %w(auto manual) }
 end
