@@ -10,11 +10,35 @@
     <% end %>
   </div>
 
+<!--
   <div class="form-field">
     <%= form.label :rating %>
     <%= form.number_field :rating, in: 1..5, step: 1, id: :review_rating %>
     <span class="error-msg"><%= display_errors(@review, :rating) %></span>
   </div>
+-->
+
+  <div class="rating">
+    <%= form.radio_button :rating, 5 %>
+    <%= form.label :_, for: :review_rating_5 %>
+    <%= form.radio_button :rating, 4 %>
+    <%= form.label :_, for: :review_rating_4 %>
+    <%= form.radio_button :rating, 3 %>
+    <%= form.label :_, for: :review_rating_3 %>
+    <%= form.radio_button :rating, 2 %>
+    <%= form.label :_, for: :review_rating_2 %>
+    <%= form.radio_button :rating, 1 %>
+    <%= form.label :_, for: :review_rating_1 %>
+
+    <%# <input type="radio" name="review[rating]" id="review_rating_5" value=5 /> <label for="review_rating_5"> </label> 
+    <input type="radio" name="review[rating]" id="review_rating_4" value=4 /> <label for="review_rating_4"> </label> 
+    <input type="radio" name="review[rating]" id="review_rating_3" value=3 /> <label for="review_rating_3"> </label> 
+    <input type="radio" name="review[rating]" id="review_rating_2" value=2 /> <label for="review_rating_2"> </label> 
+    <input type="radio" name="review[rating]" id="review_rating_1" value=1 /> <label for="review_rating_1"> </label> %>
+        
+  </div>
+
+
 
   <div class="form-field">
     <%= form.text_area :content, placeholder: 'Comment', id: :review_content %>

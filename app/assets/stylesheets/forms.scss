@@ -52,7 +52,7 @@ form {
   cursor: pointer;
   &:hover {
     color: $white;      
-    background-color: darken($color: $primary, $amount: 10)
+    background-color: lighten($color: $primary, $amount: 15);
   }
 }
 

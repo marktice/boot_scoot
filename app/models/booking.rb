@@ -9,11 +9,6 @@ class Booking < ApplicationRecord
 
   validates :origin_address,      presence: true
   validates :destination_address, presence: true
-
-  # def distance
-  #   # @_distance ||= Geocoder::Calculations.distance_between(self.locations.first.address, self.locations.last.address)
-  #   @_distance ||= self.origin.distance_from(self.destination.to_coordinates)
-  # end
   
   def cost_in_cents
     cost*100
