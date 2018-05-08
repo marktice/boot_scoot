@@ -2,8 +2,10 @@
   <nav role="navigation">
     <%= render 'layouts/hamburger' %>
     <div id="nav-logo"><%= link_to 'Boot Scoot', root_path %></div>
-    <%= link_to profile_path do %>
-      <%= image_tag display_avatar(current_user, :thumb), id: "nav-avatar" %>
+    <% if user_signed_in? %>
+      <%= link_to profile_path do %>
+        <%= image_tag display_avatar(current_user, :thumb), id: "nav-avatar" unless current_user.profile.nil? %>
+      <% end %>
     <% end %>
   </nav>
 </header>
