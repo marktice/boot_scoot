@@ -2,10 +2,10 @@
 
   <div class="review-image-field">
     <% if current_user == @review.booking.passenger %>
-      <%= image_tag display_avatar(@review.booking.driver, :medium), class: 'image', id: 'review-image' %>
+      <%= image_tag display_avatar(@review.booking.driver, :medium), class: 'avatar avatar-medium' %>
       <h3><%= @review.booking.driver.profile.first_name %></h3>
     <% elsif current_user == @review.booking.driver %>
-      <%= image_tag display_avatar(@review.booking.passenger, :medium), class: 'image', id: 'review-image' %>
+      <%= image_tag display_avatar(@review.booking.passenger, :medium), class: 'avatar avatar-medium' %>
       <h3><%= @review.booking.passenger.profile.first_name %></h3>
     <% end %>
   </div>
