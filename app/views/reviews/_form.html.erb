@@ -2,14 +2,10 @@
 
   <div class="review-image-field">
     <% if current_user == @review.booking.passenger %>
-      <% unless @review.booking.driver.profile.avatar_image_data == nil %>
-        <%= image_tag @review.booking.driver.profile.avatar_image_url(:medium), id: 'review-image' %><br />
-      <% end %>
+      <%= image_tag display_avatar(@review.booking.driver, :medium), class: 'image', id: 'review-image' %>
       <h3><%= @review.booking.driver.profile.first_name %></h3>
     <% elsif current_user == @review.booking.driver %>
-      <% unless @review.booking.passenger.profile.avatar_image_data == nil %>
-        <%= image_tag @review.booking.passenger.profile.avatar_image_url(:medium), id: 'review-image' %><br />
-      <% end %>
+      <%= image_tag display_avatar(@review.booking.passenger, :medium), class: 'image', id: 'review-image' %>
       <h3><%= @review.booking.passenger.profile.first_name %></h3>
     <% end %>
   </div>

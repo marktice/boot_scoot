@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :check_profile
 
   def index
     @bookings = Booking.where(driver: nil).where.not(payed_at: nil)
@@ -127,5 +128,12 @@ class BookingsController < ApplicationController
       :origin_address,
       :destination_address
     ])
+  end
+
+  def check_profile
+    if current_user.profile.nil?
+      redirect_to profile_edit_path
+      flash[:danger] = "You must create a profile to continue"
+    end
   end
 end
