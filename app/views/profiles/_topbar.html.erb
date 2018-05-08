@@ -1,16 +1,16 @@
 <div class="profile-top-bar">
   <% if current_user.car.nil? %>
-    <%= link_to 'Add your car', car_edit_path %>|
+    <%= link_to 'Add your car', car_edit_path %>
   <% else %>
-    <%= link_to 'Your Car', car_path %>|
-    <%= link_to 'Your Bookings', passenger_bookings_path %>|
+    <%= link_to 'Your Car', car_path %>
+    <%= link_to 'Your Bookings', passenger_bookings_path %>
   <% end %>
 
   <% if current_user.driver_profile.nil? %>
-    <%= link_to 'Become a driver', driver_edit_path %>|
+    <%= link_to 'Become a driver', driver_edit_path %>
   <% else %>
-    <%= link_to 'Driver Details', driver_path %>|
-    <%= link_to 'Driver Bookings', driver_bookings_path %>|
+    <%= link_to 'Driver Details', driver_path %>
+    <%= link_to 'Driver Bookings', driver_bookings_path %>
   <% end %>
   <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
 </div>

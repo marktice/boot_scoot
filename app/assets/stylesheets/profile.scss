@@ -1,0 +1,19 @@
+@import '_variables';
+
+.profile-top-bar {
+  margin-bottom: 20px;
+  a {
+    color: $primary;
+    margin-right: 10px;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+#profile-avatar {
+  display: block;
+  border-radius: 50%;
+  margin: auto;
+  text-align: center;
+}

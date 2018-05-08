@@ -43,7 +43,7 @@ h1 {
   font-size: 0.875em; //10pt
 }
 .flash-success {
-  background-color: rgb(156, 206, 156);
+  background-color: $light-green;
 }
 .flash-danger {
   background-color: rgb(163, 42, 42);
@@ -56,10 +56,4 @@ main {
   margin: 0 auto;
   padding: 1rem;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.image {
-  // width: 200px;
-  // height: 200px;
-  border-radius: 50%;
 }
