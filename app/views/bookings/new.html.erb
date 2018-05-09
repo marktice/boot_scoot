@@ -7,7 +7,6 @@
   <div class="form-field">
     <%= f.text_field :destination_address, placeholder: "Enter destination address", value: current_user.profile.home_address, required: true %>
   </div>
-  <%#Wont autocomplete with:    , value: current_user.profile.home_address %>
 
   <%= f.submit :Confirm, class: 'main-button' %>
 <% end %>
@@ -28,10 +27,11 @@
 
   function AutocompleteDirectionsHandler(map) {
     this.map = map;
-    //this.originPlaceId = null;
-    //this.destinationPlaceId = null;
+    this.originPlaceId = null;
+    this.destinationPlaceId = null;
     var originInput = document.getElementById('booking_origin_address');
     var destinationInput = document.getElementById('booking_destination_address');
+    
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer;
     this.directionsDisplay.setMap(map);
@@ -40,10 +40,10 @@
         originInput, {placeIdOnly: true});
     var destinationAutocomplete = new google.maps.places.Autocomplete(
         destinationInput, {placeIdOnly: true});
-
+       
     this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
-    this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
-
+    this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');  
+  
   }
 
   AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {

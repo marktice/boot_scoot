@@ -43,10 +43,10 @@
 
 <script>
 // autocomplete home address
-  var placeSearch, autocomplete;
+  //var placeSearch, autocomplete;
 
   function initAutocomplete() {
-    autocomplete = new google.maps.places.Autocomplete(
+    new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */(document.getElementById('profile_home_address')),
         {types: ['geocode'], componentRestrictions: {country: 'au'}});
   }
