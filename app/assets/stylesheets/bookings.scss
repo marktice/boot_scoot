@@ -20,22 +20,47 @@
 
 // show page
 .user-card {
+  font-size: 0.85em;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   // min-height: 200px;
   justify-content: center;
   border: 1px solid $off-white;
-  .user-info {
-    flex-basis: 300px;
-    border: 1px solid $off-white;
-  }
-  #driver-panel {
-    font-size: 0.825em;
-    flex-basis: 300px;
-    max-height: 300px;
-    overflow-y: scroll;
-    border: 1px solid $off-white;
-  }
+    .user-info {
+
+      flex-basis: 100%;
+      display: flex;
+      border: 1px solid $off-white;
+      .avatar-thumb {
+        display: block;
+        margin: 0 auto;
+      }
+      .first-name{
+        text-align: center;
+      }
+      #passenger {
+        width: 50%;
+      }
+      #car-info {
+        width: 50%;
+        border: 1px solid $off-white;
+      }
+      span {
+        float: right;
+      }
+    }
+    #driver-panel {
+      flex-basis: 100%; // @750px change to 50%
+      // font-size: 0.825em;
+      max-height: 200px;
+      // margin: 0 auto;
+      overflow-y: scroll;
+      border: 1px solid $off-white;
+      .adp-directions {
+        width: 100%;
+      }
+    }
 }
 
 #map {

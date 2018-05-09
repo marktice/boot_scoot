@@ -11,11 +11,20 @@
 
 <% elsif current_user == @booking.driver %>
     <div class="user-info">
-      <h4>Your passenger</h4>
-      <%= image_tag display_avatar(@booking.passenger, :thumb), class: 'avatar avatar-thumb' %>
-      <p><%= @booking.passenger.profile.first_name %></p>
-      <p>Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></p>
-      <p>Phone: <%= @booking.passenger.profile.phone_number %></p>
+      <div id="passenger">
+        <h4>Your passenger</h4>
+        <%= image_tag display_avatar(@booking.passenger, :thumb), class: 'avatar avatar-thumb' %>
+        <p class="first-name"><%= @booking.passenger.profile.first_name %></p>
+        <p>Rating <span><%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></span></p>
+        <p>Phone <span><%= @booking.passenger.profile.phone_number %></span></p>
+      </div>
+      <div id="car-info">
+        <h4>Car</h4>
+        <p>Make <span><%= @booking.passenger.car.make %></span></p>
+        <p>Model <span><%= @booking.passenger.car.model %></span></p>
+        <p>Plate <span><%= @booking.passenger.car.number_plate %></span></p>
+        <p>Transmission <span><%= @booking.passenger.car.transmission %></span></p>
+      </div>
     </div>
-    <div id="driver-panel"></div>
+  <div id="driver-panel"></div>
 <% end %>
