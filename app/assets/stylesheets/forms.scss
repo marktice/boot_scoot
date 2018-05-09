@@ -54,6 +54,14 @@ form {
   }
 }
 
+#user_remember_me {
+  width: initial;
+}
+#remember_me_label{
+  color: $light-grey;
+  font-size: 0.875em;
+}
+
 .error-msg {
   font-size: 0.813em;
   color: $secondary;
