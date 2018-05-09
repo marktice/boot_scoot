@@ -4,6 +4,7 @@ header {
   nav {
     position: fixed;
     width: 100%;
+    min-width: 300px;
     background-color: $primary;
     z-index: 999;
     padding: 0 10px;
@@ -21,6 +22,8 @@ header {
   font-family: $logo-font;
   display: inline-block;
   padding: 5px 0;
+  // need left padding as hamburger isn't technically IN navbar
+  padding-left: 40px;
   a {
     color: $white;
   }

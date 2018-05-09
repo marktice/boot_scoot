@@ -1,6 +1,7 @@
 @import '_variables';
 
 html {
+  min-width: 300px;
   box-sizing: border-box;
   scroll-behavior: smooth; 
   overflow-y: scroll;
