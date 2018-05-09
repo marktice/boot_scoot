@@ -26,17 +26,34 @@
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -37.8182119, lng: 144.9543325},
       zoom: 13,
-      styles: <%= render 'map_style' %>
+      styles: <%= render 'min_map_style' %>
     });
+
+    var icon = {
+      url: "https://image.flaticon.com/icons/svg/832/832793.svg",
+      scaledSize: new google.maps.Size(32, 32), // scaled size
+      origin: new google.maps.Point(0, 0), // origin
+      anchor: new google.maps.Point(0, 0) // anchor
+    };
 
     // markers for each location
     locations.map((location, i) => {
       return new google.maps.Marker({
         position: location,
-        label: location.name,
+        //label: location.name,
+        animation: google.maps.Animation.DROP,
+        icon: icon,
         map: map
       });
     });
+    
+    function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
 
     infoWindow = new google.maps.InfoWindow;
 
@@ -47,7 +64,6 @@
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-
         infoWindow.setPosition(pos);
         infoWindow.setContent('Location found.');
         infoWindow.open(map);
