@@ -18,6 +18,26 @@
   }
 }
 
+// show page
+.user-card {
+  display: flex;
+  flex-wrap: wrap;
+  // min-height: 200px;
+  justify-content: center;
+  border: 1px solid $off-white;
+  .user-info {
+    flex-basis: 300px;
+    border: 1px solid $off-white;
+  }
+  #driver-panel {
+    font-size: 0.825em;
+    flex-basis: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+    border: 1px solid $off-white;
+  }
+}
+
 #map {
   height: 600px;
   width: 100%;

@@ -1,6 +1,6 @@
 <% if current_user == @booking.passenger %>
   <% unless @booking.driver.nil? %>
-  <div class="user-card">
+  <div class="user-info">
     <h4>Your driver</h4>
     <%= image_tag display_avatar(@booking.driver, :thumb), class: 'avatar avatar-thumb' %>
     <p><%= @booking.driver.profile.first_name %></p>
@@ -8,13 +8,14 @@
     <p>Phone: <%= @booking.driver.profile.phone_number %></p>
   </div>
   <% end %>
-  
+
 <% elsif current_user == @booking.driver %>
-  <div class="user-card">
-    <h4>Your passenger</h4>
-    <%= image_tag display_avatar(@booking.passenger, :thumb), class: 'avatar avatar-thumb' %>
-    <p><%= @booking.passenger.profile.first_name %></p>
-    <p>Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></p>
-    <p>Phone: <%= @booking.passenger.profile.phone_number %></p>
-  </div>
+    <div class="user-info">
+      <h4>Your passenger</h4>
+      <%= image_tag display_avatar(@booking.passenger, :thumb), class: 'avatar avatar-thumb' %>
+      <p><%= @booking.passenger.profile.first_name %></p>
+      <p>Rating: <%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></p>
+      <p>Phone: <%= @booking.passenger.profile.phone_number %></p>
+    </div>
+    <div id="driver-panel"></div>
 <% end %>

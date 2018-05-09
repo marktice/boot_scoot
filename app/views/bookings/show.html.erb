@@ -13,7 +13,9 @@
   <%= link_to 'Refresh', @booking, class: 'main-button' %>
 <% end %>
 
-<%= render 'user_card' %>
+<div class="user-card">
+  <%= render 'user_card' %>
+</div>
 
 <% unless @booking.driver.nil? %>
   <% unless has_reviewed?(@booking) %>
@@ -21,12 +23,7 @@
   <% end %>
 <% end %>
 
-<!-- other display options
-<p>Distance: <%= sprintf("%0.2f", @booking.distance) %> km</p>
--->
-
 <div id="map"></div>
-<div id="driver-panel"></div>
 
 <%= javascript_tag do %>
   function initMap() {
