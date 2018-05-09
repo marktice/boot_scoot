@@ -46,14 +46,11 @@ h1 {
   box-shadow: 0 10px 10px rgba(0,0,0,0.16), 0 6px 6px rgba(0,0,0,0.19);
   font-size: 0.850em;
 }
-.flash-success {
+.flash-success, .flash-notice {
   background-color: $light-green;
 }
-.flash-danger {
+.flash-danger, .flash-alert {
   background-color: $secondary;
-}
-.flash-notice {
-  background-color: $light-green;
 }
 
 main {
