@@ -19,60 +19,106 @@
 }
 
 // show page
+.booking-status {
+  font-size: 0.875em;
+}
+
 .user-card {
   font-size: 0.85em;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  // min-height: 200px;
   justify-content: center;
   border: 1px solid $off-white;
-    .user-info {
-
-      flex-basis: 100%;
+  h4 {
+    margin: 0;
+    margin-bottom: 3px;
+  }
+  span {
+    float: right;
+  }
+  .avatar-thumb {
+    display: block;
+    margin: 0 auto;
+  }
+  .first-name {
+    text-align: center;
+  }
+  // Drivers View - Passenger info and car info, then a driver panel with directions
+  .passenger-info {
+    flex-basis: 100%;
+    display: flex;
+    #user {
+      padding: 3px;
+      width: 50%;
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       border: 1px solid $off-white;
-      .avatar-thumb {
+    }
+    #car-info {
+      padding: 3px;
+      width: 50%;
+      border: 1px solid $off-white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .car-thumb {
+        // width: 80px;
+        height: 80px;
         display: block;
         margin: 0 auto;
       }
-      .first-name{
-        text-align: center;
-      }
-      #passenger {
-        width: 50%;
-      }
-      #car-info {
-        width: 50%;
-        border: 1px solid $off-white;
-      }
-      span {
-        float: right;
-      }
     }
-    #driver-panel {
-      flex-basis: 100%; // @750px change to 50%
-      // font-size: 0.825em;
-      max-height: 200px;
-      // margin: 0 auto;
-      overflow-y: scroll;
+  }
+  #driver-panel {
+    flex-basis: 100%; // @750px change to 50%
+    max-height: 175px;
+    overflow-y: scroll;
+    border: 1px solid $off-white;
+    .adp-directions {
+      width: 100%;
+    }
+  }
+
+// Passengers View - Driver info and driver-profile-info
+  .driver-info {
+    width: 100%;
+    display: flex;
+    #user {
+      padding: 3px;
+      flex-basis: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       border: 1px solid $off-white;
-      .adp-directions {
-        width: 100%;
-      }
     }
+  }
+  #driver-profile-info {
+    padding: 3px;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid $off-white;
+    .driver-transport-thumb {
+      // width: 80px;
+      height: 80px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
 }
+
 
 #map {
   height: 600px;
   width: 100%;
   background: $off-white;
   margin-top: 10px;
-  // position: absolute;
-  // padding-left: -1rem;
-  // margin-left: -1rem; 
 }
 
+// stripe payment button
 .stripe {
   margin: 0;
   padding: 15px 0;

@@ -1,5 +1,5 @@
-<p>Status: <%= @booking.status %></p>
-<hr>
+<p class="booking-status">Status: <%= @booking.status %></p>
+
 <% if @booking.payed_at.nil? %>
   <h4>Addresses</h4>
   <li><%= @booking.origin_address %></li>

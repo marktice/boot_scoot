@@ -1,29 +1,50 @@
 <% if current_user == @booking.passenger %>
   <% unless @booking.driver.nil? %>
-  <div class="user-info">
-    <h4>Your driver</h4>
-    <%= image_tag display_avatar(@booking.driver, :thumb), class: 'avatar avatar-thumb' %>
-    <p><%= @booking.driver.profile.first_name %></p>
-    <p>Rating: <%= sprintf("%0.2f", @booking.driver.average_driver_rating) %></p>
-    <p>Phone: <%= @booking.driver.profile.phone_number %></p>
+  <div class="driver-info">
+    <div id="user">
+      <h4>Your driver</h4>
+      <div>
+        <%= image_tag display_avatar(@booking.driver, :thumb), class: 'avatar avatar-thumb' %>
+        <p class="first-name"><%= @booking.driver.profile.first_name %></p>
+        <p>Rating <span><%= sprintf("%0.2f", @booking.driver.average_driver_rating) %></span></p>
+        <p>Phone <span><%= @booking.driver.profile.phone_number %></span></p>
+      </div>
+    </div>
+  </div>
+    
+  <div id="driver-profile-info">
+    <h4>Credentials</h4>
+    <div>
+      <% unless @booking.driver.driver_profile.transport_image_data.nil? %>
+        <%= image_tag @booking.driver.driver_profile.transport_image_url(:thumb), class: 'driver-transport-thumb' %>
+      <% end %>
+      <p>Type <span><%= @booking.driver.driver_profile.transport_type %></span></p>
+      <p>Licence <span><%= @booking.driver.driver_profile.drivers_licence %></span></p>
+    </div>
   </div>
   <% end %>
 
 <% elsif current_user == @booking.driver %>
-    <div class="user-info">
-      <div id="passenger">
+    <div class="passenger-info">
+      <div id="user">
         <h4>Your passenger</h4>
-        <%= image_tag display_avatar(@booking.passenger, :thumb), class: 'avatar avatar-thumb' %>
-        <p class="first-name"><%= @booking.passenger.profile.first_name %></p>
-        <p>Rating <span><%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></span></p>
-        <p>Phone <span><%= @booking.passenger.profile.phone_number %></span></p>
+        <div>
+          <%= image_tag display_avatar(@booking.passenger, :thumb), class: 'avatar avatar-thumb' %>
+          <p class="first-name"><%= @booking.passenger.profile.first_name %></p>
+          <p>Rating <span><%= sprintf("%0.2f", @booking.passenger.average_passenger_rating) %></span></p>
+          <p>Phone <span><%= @booking.passenger.profile.phone_number %></span></p>
+        </div>
       </div>
       <div id="car-info">
-        <h4>Car</h4>
-        <p>Make <span><%= @booking.passenger.car.make %></span></p>
-        <p>Model <span><%= @booking.passenger.car.model %></span></p>
-        <p>Plate <span><%= @booking.passenger.car.number_plate %></span></p>
-        <p>Transmission <span><%= @booking.passenger.car.transmission %></span></p>
+        <h4>Car details</h4>
+        <div>
+          <% unless @booking.passenger.car.car_image_data.nil? %>
+            <%= image_tag @booking.passenger.car.car_image_url(:thumb), class: 'car-thumb' %>
+          <% end %>
+          <p>Make/Model <span><%= @booking.passenger.car.make %> <%= @booking.passenger.car.model %></span></p>
+          <p>Plate <span><%= @booking.passenger.car.number_plate %></span></p>
+          <p>Transmission <span><%= @booking.passenger.car.transmission %></span></p>
+        </div>
       </div>
     </div>
   <div id="driver-panel"></div>
