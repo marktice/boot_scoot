@@ -22,7 +22,7 @@ header {
   font-family: $logo-font;
   display: inline-block;
   padding: 5px 0;
-  // need left padding as hamburger isn't technically IN navbar
+  // need left padding as hamburger isn't technically IN navbar (padding = nav-avatar width)
   padding-left: 40px;
   a {
     color: $white;

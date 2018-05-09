@@ -3,13 +3,12 @@
 <div id="map"></div>
 
 <% @bookings.each do |booking| %>
-  <div>
-    Passenger: <%= booking.passenger.profile.first_name %><br />
-    Pickup: <%= booking.origin_address %><br />
-    Created_at: <%= time_ago_in_words(booking.created_at) %><br />
-    <%= link_to 'Boot Scoot!', booking_path(booking), method: :patch %><br />
+  <div class="current-booking">
+    <%= booking.passenger.profile.first_name %>
+    <span><%= time_ago_in_words(booking.created_at) %> ago</span><br />
+    <li><%= booking.origin_address %></li>
+    <%= link_to 'Boot Scoot!', booking_path(booking), method: :patch, class: 'main-button' %>
   </div>
-  <hr>
 <% end %>
 
 <%= javascript_tag do %>

@@ -12,9 +12,13 @@ footer {
   justify-items: center;
   align-items: center;
   background-color: $medium-grey;
+  h5 {
+    color: $light-grey;
+  }
   .site-links {
     grid-area: links;
     justify-self: flex-start;
+    // align-items: center;
     margin-left: 5%;
     a {
       margin-right: 10px;
@@ -33,9 +37,9 @@ footer {
     justify-self: flex-start;
     align-items: center;
     i {
-      margin-right: 10px;
+      margin-right: 15px;
       color: $white;
-      font-size: 1em;
+      font-size: 1.25em;
       transition: all 0.4s ease;
       &:visited {
         color: $white;
@@ -51,5 +55,21 @@ footer {
     text-align: center;
     color: $off-white;
     font-size: 0.70em;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  footer {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "links social"
+    "copyr copyr"; 
+    .site-links {
+      justify-self: center;
+    }
+    .social-container {
+      justify-self: center;
+    }
   }
 }

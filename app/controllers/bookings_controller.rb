@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :check_profile
 
   def index
-    @bookings = Booking.where(driver: nil).where.not(payed_at: nil)
+    @bookings = Booking.where(driver: nil).where.not(payed_at: nil).order('payed_at DESC')
     if current_user.driver_profile.nil?
       redirect_to driver_edit_path
       flash[:danger] = 'Apply to be a driver to accept bookings'

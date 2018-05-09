@@ -1,13 +1,31 @@
 @import '_variables';
 
+// index page
+.current-booking {
+  margin: 15px 0;
+  border: 1px solid $off-white;
+  span {
+    float: right;
+    font-size: 10pt;
+  }
+  .main-button {
+    width: 150px;
+    margin: 0;
+    margin-top: 10px;
+  }
+  li {
+    font-size: 10pt;
+  }
+}
+
 #map {
   height: 600px;
   width: 100%;
   background: $off-white;
+  margin-top: 10px;
   // position: absolute;
   // padding-left: -1rem;
   // margin-left: -1rem; 
-  // margin-right: -4rem; 
 }
 
 .stripe {

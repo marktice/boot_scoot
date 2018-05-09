@@ -1,11 +1,11 @@
 class ProfilesController < ApplicationController
 
   def passenger_bookings
-    @bookings = current_user.passenger_bookings.where.not(completed_at: nil)  
+    @bookings = current_user.passenger_bookings.where.not(completed_at: nil).order('completed_at DESC').limit(5)
   end
 
   def driver_bookings
-    @bookings = current_user.driver_bookings.where.not(completed_at: nil)
+    @bookings = current_user.driver_bookings.where.not(completed_at: nil).order('completed_at DESC').limit(5)
   end
 
   def show

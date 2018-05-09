@@ -1,0 +1,13 @@
+@import '_variables';
+
+.past-booking {
+  border: 1px solid $off-white;
+  font-size: 10pt;
+  span {
+    float: right;
+  }
+  .main-button {
+    margin: 0;
+    margin-top: 5px;
+  }
+}

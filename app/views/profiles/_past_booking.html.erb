@@ -1,0 +1,12 @@
+<% @bookings.each do |booking| %>
+  <div class="past-booking">
+    <% unless booking.driver.nil? %>
+      <%= time_ago_in_words(booking.completed_at) %> ago
+      <span>Cost: $<%= sprintf("%0.2f", booking.cost) %></span><br />
+      <li><%= booking.origin_address %></li>
+      <li><%= booking.destination_address %></li>
+      <%= link_to 'Show', booking_path(booking), class: 'main-button' %>
+    <% end %>
+  </div>
+  <br />
+<% end %>
