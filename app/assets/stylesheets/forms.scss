@@ -13,23 +13,21 @@ form {
   input, textarea {
     width: 100%;
     font-size: 0.813em; //10pt
-    // font-family: $content-font;
     padding: 1em;
     transition: all 0.4s ease-in-out;
     margin-bottom: 3px;
     border: none;
     border-bottom: 1px solid $dark-grey;
-    // border: 1px solid $dark-grey;
     &:hover, &:focus {
       background-color: $white;
       color: $dark-grey;
       outline: none;
-      // border: 1px solid $primary;
       box-shadow: 0 0 2px $primary;
     }
   }
   textarea {
     height: 8em;
+    border: 1px solid $off-white;
     resize: none;
   }
   .form-field {

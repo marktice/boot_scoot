@@ -52,16 +52,4 @@ footer {
     color: $off-white;
     font-size: 0.70em;
   }
-  a#up-button {
-    grid-area: up;
-    i {
-      transition: all 0.4s ease;      
-      color: $white;
-      font-size: 1.50em;
-      &:hover {
-        color: $primary;
-        transform: scale(1.15);        
-      }
-    }
-  }
 }

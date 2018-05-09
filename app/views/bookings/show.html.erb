@@ -1,10 +1,16 @@
 <p>Status: <%= @booking.status %></p>
-
-<p>Distance: <%= sprintf("%0.2f", @booking.distance) %> km</p>
-<p>Cost: $<%= sprintf("%0.2f", @booking.cost) %></p>
-
+<hr>
 <% if @booking.payed_at.nil? %>
+  <h4>Addresses</h4>
+  <li><%= @booking.origin_address %></li>
+  <li><%= @booking.destination_address %></li>
+  <h4>Cost</h4>
+  <p>$<%= sprintf("%0.2f", @booking.cost) %></p>
   <%= render 'charge_form', booking: @booking %>
+<% end %>
+
+<% if @booking.status == 'Payment received, looking for driver' %>
+  <%= link_to 'Refresh', @booking, class: 'main-button' %>
 <% end %>
 
 <%= render 'user_card' %>
@@ -14,6 +20,10 @@
     <div><%= link_to 'Complete', new_booking_review_path(@booking), class: 'main-button' %></div>
   <% end %>
 <% end %>
+
+<!-- other display options
+<p>Distance: <%= sprintf("%0.2f", @booking.distance) %> km</p>
+-->
 
 <div id="map"></div>
 <div id="driver-panel"></div>

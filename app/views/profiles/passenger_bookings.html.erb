@@ -1,5 +1,6 @@
 <h1>Your trips as passenger</h1>
-
+<hr>
+<br>  
 <% @bookings.each do |booking| %>
   <% unless booking.driver == nil %>    
     <%= time_ago_in_words(booking.completed_at) %> ago<br />

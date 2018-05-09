@@ -1,5 +1,6 @@
 <h1>Your trips as driver</h1>
-
+<hr>
+<br>
 <% @bookings.each do |booking| %>
   <%= time_ago_in_words(booking.completed_at) %> ago<br />
   Cost: $<%= sprintf("%0.2f", booking.cost) %><br />
