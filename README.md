@@ -1,4 +1,5 @@
-# BOOT SCOOT
+# Boot Scoot
+https://bootscoot.herokuapp.com/
 
 ## Concept
 ### The Problem
@@ -13,34 +14,15 @@ They come to you quickly on a small form of transport which will fit in your car
 ### Driver Transport
 How does the driver get to you and then leave the drop-off location?
 
-**Solution**: The driver will have a form of transport that fits in your boot. As long as it's below certain dimensions which will fit into the car.(need to measure this)
+**Solution**: The driver will have a form of transport that fits in your boot. As long as it's below certain dimensions which will fit into the car.
 
 #### Transport Options:
 - foldable scooter
-![scoot](https://inhabitat.com/wp-content/blogs.dir/1/files/2014/11/Mini-Citysurfer-Folding-Electric-Scooter-2.jpg)
+![scoot](app/assets/images/stock/folded-unfolded-scooter.jpg)
 - foldable bike 
-![bike](https://cdn1.psfk.com/wp-content/uploads/2017/09/burke20-suitcase.jpg)
 - electric skateboard
-![skateboard](https://hoverboardstore.com.au/wp-content/uploads/2017/11/1-8b51ZrIQ8cUejXrGNNG8Qg-Copy-924x784.jpeg)
 - hoverboard
-![hoverboard](https://i.pinimg.com/564x/4d/9a/21/4d9a2167f73cdf2244638e68c3b76b93.jpg)
 - segway
-![segway](http://psipunk.com/wp-content/uploads/2009/08/orbis-segway-like-compact-foldable-vehicle-04.jpg)
-
-### Matching driver and passenger
-How to match users so that both are happy. Let the driver pick trip or match them ourselves?
-
-#### Match making algorithm
-- driver distance to pickup(origin)
-- in driver profile can select drop-off(destination) max distance from their home
-- if female passenger they can select only female drivers
-
-```
-Logged in drivers
-order by shortest distance from driver to pickup(origin)
-check: if passenger[:sex] == female, find driver[:sex] == female
-check: distance from driver[:home] to destination < driver[:max_distance]
-```
 
 ### Target Markets
 #### Passengers
@@ -60,10 +42,18 @@ Events:
 
 ## Planning
 ### Trello
-*PICTURE OF TRELLO HERE*
-*DISCUSSION ON HOW GOOD TRELLO IS*
+[Trello Board - Boot Scoot](https://trello.com/b/g33pMsuZ/boot-scoot#)
+
+![trello](app/assets/images/readme/trello1.png)
+![trello](app/assets/images/readme/trello2.png)
+
+My trello board is the main driver of my project management. It allowed me to plan ahead with User Stories, Models, Controllers, ERD and Wireframes. I also used it to determine the potential APIs that I am going to use as well as the gems that I need to build my rails project.
+
+The trello board later turned into an Agile scrum board in which I managed my project to organise my Backlog, Active tasks, Tasks that are ready to be tested and the Tasks I already completed. Using Agile in this project is a very fruitful decision which leads to the proper timeboxing of my tasks.
 
 ### User Stories
+My user stories are composed of 3 target markets (Guests, Buyers and Sellers). Guests are the people who have not signed up for the app and are potential customers for the two-sided marketplace. Buyers and Sellers are the registered users who can benefit from all the features of the site. Also, since it is a two-sided marketplace, a buyer can be a seller and a seller can be a buyer.
+
 #### Guest
 - As a guest, i want to see all the details of the service, so that i can decide if i'd like to sign up.
 #### Passengers
@@ -123,33 +113,83 @@ Johnny's Stories
 
 
 ### ERD
-*picture of ERD diagram*
+The ERD is the most critical part of my design and is essentially one of the biggest things I have done for my project. Planning my tables ahead gave me an idea of how I want to work with my Rails models. 
 
+![ERD](/app/assets/images/readme/db.png)
 
 ### Wireframes
-*picture of figma wireframes*
+[Figma - Boot Scoot](https://www.figma.com/file/V70gzh77WVl7rG0sr5S4MbVj/Boot-Scoot)
+
 From the user stories a simply interface was required for the potentially inebriated passengers.
+
+![Figma](/app/assets/images/readme/figma.png)
+
 
 ---
 
 ## Development
 
-### Gems
+### Features
+- Devise Security and Pundit authorizations
+- Image uploading and processing of different sized images
+- Autocomplete of addresses
+![Contact](/app/assets/images/readme/autocomplete.png)
+- Geocoding of addresses latitude and longitude
+- Custom styled maps, made with a simplified minimal approach and color palette
+- Map with origin and destination shown with a desired driving route
+![Contact](/app/assets/images/readme/route.png)
+- Bookings available map for drivers, geolocating the driver and showing pickup locations nearby. 
+![Contact](/app/assets/images/readme/bookings.png)
+- Trip directions panel for the driver
+- Estimated time and calculated distance
+![Contact](/app/assets/images/readme/directions.png)
+- Trip cost calculated from these values
+- Order Confirmation and credit card payments with stripe
+![Contact](/app/assets/images/readme/stripe.png)
+- Reviews from both passenger and driver in relation to other user including a rating out of 5 and an optional comment
+![Contact](/app/assets/images/readme/review.png)
+- Redirect to contact form if rating of < 3 stars
+- Contact email form with list of all past bookings and reason for contact
+![Contact](/app/assets/images/readme/contact.png)
+- Each user have a rating shown to users for each role to motivate users to do a good job and be respectful to others 
+- Past trips list for passenger bookings and or driver bookings
+![Past bookings](/app/assets/images/readme/past-bookings.png)
+- and many more!
 
+### Gems
+```
+gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'geocoder', '~> 1.4', '>= 1.4.7'
+gem 'shrine', '~> 2.11'
+gem "image_processing", "~> 1.0"
+gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
+gem 'stripe', '~> 3.13'
+gem 'pundit', '~> 1.1'
+gem 'pry'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+```
+```
+gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
+gem 'dotenv-rails', '~> 2.3'
+gem 'rspec-rails', '~> 3.7'
+gem 'capybara', '~> 2.13'
+gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+```
 
 ### APIs
-- Google Maps API
-  - directions
-  - map
-  - autocomplete/places
-  - geolocation
+To achieve all the functionality i used many different apis from google. 
+- Google Maps JavaScript API
   - geocoding
+    - for attaining latitude and logitude of a given address
+  - directions
+    - for displaying the bookings path, car directions, distance and estimated time
+  - places and autocomplete
+    - for entering address fields
+  - geolocation
+    - for finding driver location and displaying trips nearby
 
 ### Challenges
 
 ---
 
-## Production
-### Deployment
-
-### Finished Product
+## Finished Product
