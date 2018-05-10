@@ -3,12 +3,12 @@
 <h4>Name</h4>
 <%= @profile.first_name %> <%= @profile.last_name %>
 
-<% if @profile.user.passenger_bookings.any? %>
+<% if @profile.user.reviews_as_passenger.any? %>
   <h4>Passenger rating</h4>
   <%= sprintf("%0.2f", @profile.user.average_passenger_rating) %><br />
 <% end %>
 
-<% if @profile.user.driver_bookings.any? %>
+<% if @profile.user.reviews_as_driver.any? %>
   <h4>Driver rating</h4>
   <%= sprintf("%0.2f", @profile.user.average_driver_rating) %><br />
 <% end %>
