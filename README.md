@@ -17,10 +17,13 @@ How does the driver get to you and then leave the drop-off location?
 **Solution**: The driver will have a form of transport that fits in your boot. As long as it's below certain dimensions which will fit into the car.
 
 #### Transport Options:
+The preference would be a high powered foldable scooter like pictured below. This type of scooter is powerful while still being able to fold down to a size that will fit in an everyday car boot. Although this is the preference we will allow other options aslong as they are closeby the pickup location.
+
 - foldable scooter
 
 ![scoot](app/assets/images/stock/folded-unfolded-scooter.jpg)
 
+Other Options
 - foldable bike 
 - electric skateboard
 - hoverboard
@@ -55,10 +58,11 @@ My trello board is the main driver of my project management. It allowed me to pl
 The trello board later turned into an Agile scrum board in which I managed my project to organise my Backlog, Active tasks, Tasks that are ready to be tested and the Tasks I already completed. Using Agile in this project is a very fruitful decision which leads to the proper timeboxing of my tasks.
 
 ### User Stories
-My user stories are composed of 3 target markets (Guests, Buyers and Sellers). Guests are the people who have not signed up for the app and are potential customers for the two-sided marketplace. Buyers and Sellers are the registered users who can benefit from all the features of the site. Also, since it is a two-sided marketplace, a buyer can be a seller and a seller can be a buyer.
+My user stories are composed of 3 target markets: guests, passengers and drivers. Guests are the people who have not signed up for the app and are potential customers for the two-sided marketplace. Passengers and drivers are the registered users who can benefit from all the features of the site. Also, since it is a two-sided marketplace, a passenger can be a driver and a driver can be a passenger.
 
 #### Guest
 - As a guest, i want to see all the details of the service, so that i can decide if i'd like to sign up.
+
 #### Passengers
 Top level stories:
 - As a passenger, i want to get a driver quickly, so that i don't have to wait too long.
@@ -104,19 +108,19 @@ Driver Persona:
   - Has a foldable bike
   - I need a job which is flexible around my classes and study schedule
   - I don’t own a car so can’t drive for uber
-  - Need to be payed for any work instantly
 
 Johnny's Stories
 - As Johnny, i want to be payed instantly, so that i can pay my bills(im broke).
 - As Johnny, i want to be able to select max distance from my home, so that i'm not too far away since i only have a foldable bike.
 
-
 ### User Journeys
-*picture of workflow diagram*
 
+Drawing out user journeys helped to develope the flow and redirections of the site from sign-up to completing an entire booking.
+
+![ERD](/app/assets/images/readme/user-journeys.png)
 
 ### ERD
-The ERD is the most critical part of my design and is essentially one of the biggest things I have done for my project. Planning my tables ahead gave me an idea of how I want to work with my Rails models. 
+The ERD is one of the most critical parts of the design. Planning my tables ahead gave me an idea of what i want from my models. 
 
 ![ERD](/app/assets/images/readme/db.png)
 
@@ -127,10 +131,47 @@ From the user stories a simply interface was required for the potentially inebri
 
 ![Figma](/app/assets/images/readme/figma.png)
 
-
 ---
 
-## Development
+## Finished Product
+
+https://bootscoot.herokuapp.com/
+
+![Homepage](/app/assets/images/readme/homepage.png)
+
+### Gems
+```
+gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'geocoder', '~> 1.4', '>= 1.4.7'
+gem 'shrine', '~> 2.11'
+gem "image_processing", "~> 1.0"
+gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
+gem 'stripe', '~> 3.13'
+gem 'pundit', '~> 1.1'
+gem 'pry'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+```
+```
+gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
+gem 'dotenv-rails', '~> 2.3'
+gem 'rspec-rails', '~> 3.7'
+gem 'capybara', '~> 2.13'
+gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+```
+
+### APIs
+To achieve all the functionality i used many different apis from google. 
+- Google Maps JavaScript API
+  - geocoding
+    - for attaining latitude and logitude of a given address
+  - directions
+    - for displaying the bookings path, car directions, distance and estimated time
+  - places and autocomplete
+    - for entering address fields
+  - geolocation
+    - for finding driver location and displaying trips nearby
+
+---
 
 ### Features
 - Devise Security and Pundit authorizations
@@ -174,41 +215,3 @@ From the user stories a simply interface was required for the potentially inebri
 ![Past bookings](/app/assets/images/readme/past-bookings.png)
 
 - and many more!
-
-### Gems
-```
-gem 'devise', '~> 4.4', '>= 4.4.3'
-gem 'geocoder', '~> 1.4', '>= 1.4.7'
-gem 'shrine', '~> 2.11'
-gem "image_processing", "~> 1.0"
-gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
-gem 'stripe', '~> 3.13'
-gem 'pundit', '~> 1.1'
-gem 'pry'
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
-```
-```
-gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
-gem 'dotenv-rails', '~> 2.3'
-gem 'rspec-rails', '~> 3.7'
-gem 'capybara', '~> 2.13'
-gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
-```
-
-### APIs
-To achieve all the functionality i used many different apis from google. 
-- Google Maps JavaScript API
-  - geocoding
-    - for attaining latitude and logitude of a given address
-  - directions
-    - for displaying the bookings path, car directions, distance and estimated time
-  - places and autocomplete
-    - for entering address fields
-  - geolocation
-    - for finding driver location and displaying trips nearby
-
-### Challenges
-
----
-
-## Finished Product
