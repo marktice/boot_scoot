@@ -1,6 +1,7 @@
 # Boot Scoot
 https://bootscoot.herokuapp.com/
 
+## Contents
 - [Concept](#concept)
   - [The Problem](#the-problem)
   - [Driver Transport](#driver-transport)
@@ -28,12 +29,10 @@ While these are much better options than driving they don't solve the problem of
 
 Boot Scoot solves this problem by pairing you with your own personal driver to get you AND your car home safely.
 
-You hire your personal designated driver through our app to come to your location
-
-They come to you quickly on a small form of transport (generally a foldable scooter) which fits in your car boot
-
-They drive you and your car home safely
-When the trip is complete, the driver retreives their transport from your boot and leaves to their next booking.
+- You hire your personal designated driver through our app to come to your location
+- They come to you quickly on a small form of transport (generally a foldable scooter) which fits in your car boot
+- They drive you and your car home safely
+- When the trip is complete, the driver retreives their transport from your boot and leaves to their next booking.
 
 ### Driver Transport
 How does the driver get to you and then leave the drop-off location?
@@ -55,8 +54,12 @@ Other Options
 
 ### Target Markets
 #### Passengers
-Students/business workers/sick
-Events: 
+**People**
+- Students
+- business workers
+- sick
+
+**Events**
 - sporting
 - festivals
 - concerts
@@ -183,7 +186,7 @@ The following gems were added:
 - font-awesome-rails
   - for awesome icons
 
-Development/Testing
+**Development & Testing Gems**
 - rspec-rails
   - testing
 - pry
@@ -194,7 +197,6 @@ Development/Testing
   - feature tests
 - shoulda-matchers
   - easier cleaner testing
-
 
 ### APIs
 I ended up using many different apis from the Google Maps Platform to achieve the results i wanted.
