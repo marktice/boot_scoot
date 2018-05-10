@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  # root  'pages#home'
   root  'bookings#new'
 
   devise_for :users
   
+  get   '/home',                to: 'pages#home'
   get   '/contact',             to: 'pages#contact'
   post  '/contact',             to: 'pages#contact_email'
 
