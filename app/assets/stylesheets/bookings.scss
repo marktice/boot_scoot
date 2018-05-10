@@ -1,5 +1,23 @@
 @import '_variables';
 
+// new booking
+.booking-headers {
+  h1, h2, h3, h4, h5, h6 {
+    display: inline-block;
+  }
+}
+.new_booking {
+  padding: 15px 0;
+}
+.alternate-link {
+  padding-left: 30px;
+  color: $light-grey;
+  font-size: 0.825em;
+  &:hover {
+    color: $primary;
+  }
+}
+
 // index page
 .current-booking {
   margin: 10px 0;

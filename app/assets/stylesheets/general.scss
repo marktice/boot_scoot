@@ -28,11 +28,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
   margin: 0;
-  // font-family: $logo-font;
-  // font-weight: 400;
-  // font-size: 28pt;
-  // background: $primary-dark;
-  // color: $white;
 }
 
 .spacer {
@@ -58,6 +53,6 @@ main {
   max-width: 900px;
   background-color: $white;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.5rem;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }

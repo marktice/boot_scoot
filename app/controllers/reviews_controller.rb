@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
       # if <= 2 redirect to contact form
       if @review.rating >= 3
         flash[:success] = 'Review submitted, thankyou for your feedback'
-        redirect_to root_path
+        redirect_to new_booking_path
       else
         flash[:notice] = 'Did something go wrong? Let us know how we can help'
         redirect_to contact_path

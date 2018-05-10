@@ -1,13 +1,17 @@
-<h1>Request a driver</h1>
+<div class="booking-headers">
+  <h1>Request a driver</h1>
+  <% unless current_user.driver_profile.nil? %>
+    <h5><%= link_to 'Drive', bookings_path, class: "alternate-link" %></h5>
+  <% end %>
+</div>
+
 <%= form_for @booking do |f| %>
   <div class="form-field">
     <%= f.text_field :origin_address, placeholder: "Enter origin address", required: true %>
   </div>
-  
   <div class="form-field">
     <%= f.text_field :destination_address, placeholder: "Enter destination address", value: current_user.profile.home_address, required: true %>
   </div>
-
   <%= f.submit :Confirm, class: 'main-button' %>
 <% end %>
 
