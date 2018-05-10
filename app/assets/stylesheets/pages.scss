@@ -7,6 +7,10 @@
   #sign-up-banner {
     text-align: center;
     // border: 1px solid $off-white;
+    img {
+      width: 75%;
+      border-radius: 6px;
+    }
     .main-button {
       width: 40%;
       min-width: 250px;
@@ -17,6 +21,20 @@
   }
   article {
     margin: 45px 0;
+    .content {
+      margin-bottom: 15px;
+    }
+    img {
+      margin: 0 auto;
+      display: inline-block;
+      width: 50%;
+      height: 200px;
+      border-radius: 6px;
+      object-fit: cover;
+      &:last-child {
+        margin-left: -4px;
+      }
+    }
     h2 {
       margin: 15px 0;
     }
@@ -24,4 +42,17 @@
       margin: 0.5em 0;
     }
   }
+
+  // #how-it-works {
+  //   img {
+  //     display: inline-block;
+  //     width: 50%;
+  //     height: 200px;
+  //     // border-radius: 50%;
+  //     object-fit: cover;
+  //     &:last-child {
+  //       margin-left: -4px;
+  //     }
+  //   }
+  // }
 }

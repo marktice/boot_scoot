@@ -1,41 +1,49 @@
 <div id="home-container">
   <div id="sign-up-banner">
+    <%= image_tag "stock/banner.jpg" %>
     <h1>Join the Boot Scoot Revolution Today!</h1>
     <%= link_to 'Sign up', new_user_registration_path, class: 'main-button' %>
   </div>
 
   <article>
   <h2>Why Boot Scoot</h2>
-    <p>
-      You drive your car to an event, party, dinner and you have a few too many drinks. Now it's the end of the night you need to go home but you're in no state to drive. What are your options? 
-    </p>
-    <p>Uber or a taxi?</p>
-    <p>
-      While these are much better options than driving they don't solve the problem of leaving your car behind.
-    </p>
-    <p>
-      Boot Scoot solves this problem by pairing you with your own personal driver to get you AND your car home safely.
-    </p>
+    <div class="content">
+      <p>
+        You drive your car to an event, party, dinner and you have a few too many drinks. Now it's the end of the night you need to go home but you're in no state to drive. What are your options? 
+      </p>
+      <p>Uber or a taxi?</p>
+      <p>
+        While these are much better options than driving they don't solve the problem of leaving your car behind.
+      </p>
+      <p>
+        Boot Scoot solves this problem by pairing you with your own personal driver to get you AND your car home safely.
+      </p>
+    </div>
+    <%= image_tag "stock/drinking-wine.jpg" %>
+    <%= image_tag "stock/drinking-men.jpg" %>
   </article>
 
-  <article>
+  <article id="how-it-works">
   <h2>How it works</h2>
-    <ul>
+    <ul class="content">
       <li>You hire your personal designated driver through our app to come to your location</li>
       <li>They come to you quickly on a small form of transport (generally a foldable scooter) which fits in your car boot</li>
       <li>They drive you and your car home safely</li>
       <li>When the trip is complete, the driver retreives their transport from your boot and leaves to their next booking.</li>
     </ul>
+    <%= image_tag "stock/folded-unfolded-scooter.jpg" %>
+    <%= image_tag "stock/scooter-boot.jpg" %>
   </article>
 
   <article>
   <h2>Drivers</h2>
-    <p>All our drivers are professional, reliable and experienced. They will drive your car with the respect its deserves.</p>
-    <p>In the case of an accident both the passenger and driver are fully covered.</p>
+    <div class="content">
+      <p>All our drivers are professional, reliable and experienced. They will drive your car with the respect its deserves.</p>
+      <p>In the unfortunate case of an accident both the passenger and driver are <strong>fully covered</strong>.</p>
+      <p>So put your feet up and relax with complete peace of mind.</p>
+    </div>
+    <%= image_tag "stock/woman-driving.jpg" %>
+    <%= image_tag "stock/feet-dash.jpg" %>
   </article>
 
-  <article>
-  <h2>Testimonials</h2>
-    <p></p>
-  </article>
 </div>
