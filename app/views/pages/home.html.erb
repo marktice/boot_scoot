@@ -1,8 +1,13 @@
 <div id="home-container">
   <div id="sign-up-banner">
     <%= image_tag "stock/banner.jpg" %>
-    <h1>Join the Boot Scoot Revolution Today!</h1>
-    <%= link_to 'Sign up', new_user_registration_path, class: 'main-button' %>
+    <% unless user_signed_in? %>
+      <h1>Join the Boot Scoot Revolution Today!</h1>
+      <%= link_to 'Sign up / Log in', new_user_registration_path, class: 'main-button' %>
+    <% else %>
+
+    <% end %>
+
   </div>
 
   <article>
@@ -23,7 +28,7 @@
     <%= image_tag "stock/drinking-men.jpg" %>
   </article>
 
-  <article id="how-it-works">
+  <article>
   <h2>How it works</h2>
     <ul class="content">
       <li>You hire your personal designated driver through our app to come to your location</li>

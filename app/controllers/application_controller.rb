@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     if user.profile.nil?
       profile_edit_path
     else
-      root_path
+      profile_path
     end
   end
 

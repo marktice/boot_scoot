@@ -15,7 +15,7 @@
     
     <ul id="menu">
       <% if user_signed_in? %>
-        <li><%= link_to 'Book a driver', root_path %></li>
+        <li><%= link_to 'Book a driver', new_booking_path %></li>
         <% unless current_user.car.nil? %>
           <li><%= link_to 'Past bookings', passenger_bookings_path %></li>
         <% end %>
@@ -32,5 +32,6 @@
         <li><%= link_to 'Sign up', new_user_registration_path %></li>
         <li><%= link_to 'Log in', new_user_session_path %></li>
       <% end %>
+      <li><%= link_to 'Home', root_path %></li>
     </ul>
   </div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root  'bookings#new'
+  # root  'bookings#new'
+  root  'pages#home'
 
   devise_for :users
   
