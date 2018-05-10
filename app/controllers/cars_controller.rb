@@ -14,7 +14,7 @@ class CarsController < ApplicationController
     
     if @car.save
       flash[:success] = "Car added to account"
-      redirect_to root_path
+      redirect_to profile_path
     else
       flash.now[:danger] = "Could not save car details"
       render 'edit'

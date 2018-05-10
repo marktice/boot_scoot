@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
     
     if @profile.save
       flash[:success] = "Profile created"
-      redirect_to root_path
+      redirect_to profile_path
     else
       flash.now[:danger] = "Could not save profile"
       render 'edit'
