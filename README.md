@@ -18,7 +18,9 @@ How does the driver get to you and then leave the drop-off location?
 
 #### Transport Options:
 - foldable scooter
+
 ![scoot](app/assets/images/stock/folded-unfolded-scooter.jpg)
+
 - foldable bike 
 - electric skateboard
 - hoverboard
@@ -45,6 +47,7 @@ Events:
 [Trello Board - Boot Scoot](https://trello.com/b/g33pMsuZ/boot-scoot#)
 
 ![trello](app/assets/images/readme/trello1.png)
+
 ![trello](app/assets/images/readme/trello2.png)
 
 My trello board is the main driver of my project management. It allowed me to plan ahead with User Stories, Models, Controllers, ERD and Wireframes. I also used it to determine the potential APIs that I am going to use as well as the gems that I need to build my rails project.
@@ -133,27 +136,43 @@ From the user stories a simply interface was required for the potentially inebri
 - Devise Security and Pundit authorizations
 - Image uploading and processing of different sized images
 - Autocomplete of addresses
+
 ![Contact](/app/assets/images/readme/autocomplete.png)
+
 - Geocoding of addresses latitude and longitude
 - Custom styled maps, made with a simplified minimal approach and color palette
 - Map with origin and destination shown with a desired driving route
+
 ![Contact](/app/assets/images/readme/route.png)
+
 - Bookings available map for drivers, geolocating the driver and showing pickup locations nearby. 
+
 ![Contact](/app/assets/images/readme/bookings.png)
+
 - Trip directions panel for the driver
 - Estimated time and calculated distance
+
 ![Contact](/app/assets/images/readme/directions.png)
+
 - Trip cost calculated from these values
 - Order Confirmation and credit card payments with stripe
+
 ![Contact](/app/assets/images/readme/stripe.png)
+
 - Reviews from both passenger and driver in relation to other user including a rating out of 5 and an optional comment
+
 ![Contact](/app/assets/images/readme/review.png)
+
 - Redirect to contact form if rating of < 3 stars
 - Contact email form with list of all past bookings and reason for contact
+
 ![Contact](/app/assets/images/readme/contact.png)
+
 - Each user have a rating shown to users for each role to motivate users to do a good job and be respectful to others 
 - Past trips list for passenger bookings and or driver bookings
+
 ![Past bookings](/app/assets/images/readme/past-bookings.png)
+
 - and many more!
 
 ### Gems
