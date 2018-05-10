@@ -1,6 +1,31 @@
+
+
+<% if current_user.car.nil? && current_user.driver_profile.nil? %>
+  <div class="new-profile">
+
+    <div class="user-role">
+      <h2>Want to hire a driver?</h2>
+      <div>
+        <%= image_tag "stock/feet-dash.jpg" %>
+        <%= link_to 'Add your car', car_edit_path, class: "main-button" %>
+      </div>
+    </div>
+
+    <div class="user-role">
+      <h2>Want to be a boot scoot driver?</h2>
+      <div>
+        <%= image_tag "stock/woman-driving.jpg" %>
+        <%= link_to 'Become a driver', driver_edit_path, class: "main-button" %>
+      </div>
+    </div>
+
+  </div>
+<% end %>
+
 <h1>Profile</h1>
 <hr>
 <%= render 'topbar' %>
+
 <% unless current_user.profile.nil? %>
   <%= render 'profile' %>
 <% end %>

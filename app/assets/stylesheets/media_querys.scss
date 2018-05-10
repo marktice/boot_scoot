@@ -1,4 +1,5 @@
 @media only screen and (min-width: 400px) {
+
   // passenger show page
   .user-card {
     .driver-info {
@@ -9,6 +10,13 @@
     #driver-profile-info {
       flex-basis: 50%;
     }
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  // user role on profile page
+  .user-role {
+    width: 50% !important;
   }
 }
 
