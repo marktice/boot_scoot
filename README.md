@@ -1,20 +1,44 @@
 # Boot Scoot
 https://bootscoot.herokuapp.com/
 
+- [Concept](#concept)
+  - [The Problem](#the-problem)
+  - [Driver Transport](#driver-transport)
+  - [Target Markets](#target-markets)
+- [Planning](#planning)
+  - [Trello](#trello)
+  - [User Stories](#user-stories)
+  - [User Journeys](#user-journeys)
+  - [ERD](#erd)
+  - [Wireframes](#wireframes)
+- [Finished Product](#finished-product)
+  - [Gems](#gems)
+  - [APIs](#apis)
+  - [Features](#features)
+
 ## Concept
 ### The Problem
-You drive your car to an event, party, dinner and you have a few alcoholic drinks. Now at the end of the night you need to go home but you're not in a state to drive. What are your options? 
-Currently if you don't have a designated driver willing to drive you and your car home your only option is to get a cab/uber home. But then your car is still where you left it so you must come back later to retrieve it.
+You drive your car to an event, party, dinner and you have a few too many drinks. Now it's the end of the night you need to go home but you're in no state to drive. What are your options?
+
+Uber or a taxi?
+
+While these are much better options than driving they don't solve the problem of leaving your car behind.
 
 **The Solution**
 
-Hire your personal designated driver to come to your location and drive you AND your car home. 
-They come to you quickly on a small form of transport which will fit in your car boot. Drive you and your car home, then leave on their form of transport.  
+Boot Scoot solves this problem by pairing you with your own personal driver to get you AND your car home safely.
+
+You hire your personal designated driver through our app to come to your location
+
+They come to you quickly on a small form of transport (generally a foldable scooter) which fits in your car boot
+
+They drive you and your car home safely
+When the trip is complete, the driver retreives their transport from your boot and leaves to their next booking.
 
 ### Driver Transport
 How does the driver get to you and then leave the drop-off location?
 
-**Solution**: The driver will have a form of transport that fits in your boot. As long as it's below certain dimensions which will fit into the car.
+**Solution**: The driver will have a form of transport that fits in your boot. As long as it's below certain dimensions which fit into the car boot.
 
 #### Transport Options:
 The preference would be a high powered foldable scooter like pictured below. This type of scooter is powerful while still being able to fold down to a size that will fit in an everyday car boot. Although this is the preference we will allow other options aslong as they are closeby the pickup location.
@@ -103,9 +127,7 @@ Sally's Stories
 Driver Persona:
 - Johnny
   - 20 yrs old
-  - Student
   - Broke
-  - Has a foldable bike
   - I need a job which is flexible around my classes and study schedule
   - I don’t own a car so can’t drive for uber
 
@@ -120,14 +142,14 @@ Drawing out user journeys helped to develope the flow and redirections of the si
 ![ERD](/app/assets/images/readme/user-journeys.png)
 
 ### ERD
-The ERD is one of the most critical parts of the design. Planning my tables ahead gave me an idea of what i want from my models. 
+The ERD is one of the most critical parts of the design. Planning my tables ahead gave me an idea of what i want from my models and their relationships with one another. 
 
 ![ERD](/app/assets/images/readme/db.png)
 
 ### Wireframes
 [Figma - Boot Scoot](https://www.figma.com/file/V70gzh77WVl7rG0sr5S4MbVj/Boot-Scoot)
 
-From the user stories a simply interface was required for the potentially inebriated passengers.
+From the user stories a simply interface was required for the potentially inebriated passengers. I therefore went for a material type design, with simply use of color for ease of use. 
 
 ![Figma](/app/assets/images/readme/figma.png)
 
@@ -140,41 +162,57 @@ https://bootscoot.herokuapp.com/
 ![Homepage](/app/assets/images/readme/homepage.png)
 
 ### Gems
-```
-gem 'devise', '~> 4.4', '>= 4.4.3'
-gem 'geocoder', '~> 1.4', '>= 1.4.7'
-gem 'shrine', '~> 2.11'
-gem "image_processing", "~> 1.0"
-gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
-gem 'stripe', '~> 3.13'
-gem 'pundit', '~> 1.1'
-gem 'pry'
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
-```
-```
-gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
-gem 'dotenv-rails', '~> 2.3'
-gem 'rspec-rails', '~> 3.7'
-gem 'capybara', '~> 2.13'
-gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
-```
+The following gems were added:
+
+- devise
+  - to handle user authenication and sessions
+- geocoder
+  - for geocoding latitude/logitude
+- shrine
+  - image uploading
+- image_processing
+  - resizing images
+- mailgun-ruby
+  - mailer service
+- stripe
+  - secure payment system
+- pundit
+  - authorization
+- dotenv-rails
+  - secure environment variables
+- font-awesome-rails
+  - for awesome icons
+
+Development/Testing
+- rspec-rails
+  - testing
+- pry
+  - debugging
+- factory_bot_rails
+  - model factories
+- capybara
+  - feature tests
+- shoulda-matchers
+  - easier cleaner testing
+
 
 ### APIs
-To achieve all the functionality i used many different apis from google. 
-- Google Maps JavaScript API
-  - geocoding
-    - for attaining latitude and logitude of a given address
-  - directions
-    - for displaying the bookings path, car directions, distance and estimated time
-  - places and autocomplete
-    - for entering address fields
-  - geolocation
-    - for finding driver location and displaying trips nearby
+I ended up using many different apis from the Google Maps Platform to achieve the results i wanted.
 
----
+Google Maps Platform
+- geocoding
+  - for attaining latitude and logitude of a given address
+- directions
+  - for displaying the bookings path 
+  - car directions
+  - distance and estimated time
+- places and autocomplete
+  - for entering address fields
+- geolocation
+  - for finding driver location and displaying pickup locations nearby
 
 ### Features
-- Devise Security and Pundit authorizations
+- User authenication and authorization
 - Image uploading and processing of different sized images
 - Autocomplete of addresses
 
@@ -192,11 +230,11 @@ To achieve all the functionality i used many different apis from google.
 
 - Trip directions panel for the driver
 - Estimated time and calculated distance
+- Calculted trip cost these values
 
 ![Contact](/app/assets/images/readme/directions.png)
 
-- Trip cost calculated from these values
-- Order Confirmation and credit card payments with stripe
+- Order confirmation and credit card payments with stripe
 
 ![Contact](/app/assets/images/readme/stripe.png)
 
