@@ -255,3 +255,8 @@ Google Maps Platform
 ![Past bookings](/app/assets/images/readme/past-bookings.png)
 
 - and many more!
+
+### Future Development
+This is a project i will return to and polish when i learn more. When i know more javascript i hope to add additional features to the maps especially. 
+
+Watch this space... [Boot Scoot!](https://www.youtube.com/watch?v=4NO-h9PFum4)
