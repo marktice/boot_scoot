@@ -15,6 +15,7 @@ gem 'stripe', '~> 3.13'
 gem 'pundit', '~> 1.1'
 gem 'pry'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
