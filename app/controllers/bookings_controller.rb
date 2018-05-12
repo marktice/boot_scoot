@@ -37,20 +37,27 @@ class BookingsController < ApplicationController
       redirect_to car_edit_path
       flash[:danger] = 'You require a car to make a booking'
     else
-      # create and add locations
-      @booking.origin = Location.create(address: booking_params[:origin_address])
-      @booking.destination = Location.create(address: booking_params[:destination_address])
-      # passenger creates bookings
-      @booking.passenger = current_user
-      # calculate and set distance and cost
-      @booking.distance = @booking.origin.distance_from(@booking.destination.to_coordinates)
-      @booking.cost = 8.50 + @booking.distance * 2.75
-      @booking.status = 'Booking created, pending payment'
-      if @booking.save
-        flash[:success] = 'Booking created, confirm to pay'
-        redirect_to @booking
+      @booking.origin = Location.new(address: booking_params[:origin_address])
+      @booking.destination = Location.new(address: booking_params[:destination_address])
+      
+      # assure locations are geocoded
+      if @booking.origin.save && @booking.destination.save
+        # passenger creates bookings
+        @booking.passenger = current_user
+        # calculate and set distance and cost
+        @booking.distance = @booking.origin.distance_from(@booking.destination.to_coordinates)
+        @booking.cost = 8.50 + @booking.distance * 2.75
+        @booking.status = 'Booking created, pending payment'
+        if @booking.save
+          flash[:success] = 'Booking created, confirm booking'
+          redirect_to @booking
+        else
+          flash.now[:danger] = 'Could not create booking'
+          render :new
+        end
+
       else
-        flash.now[:danger] = 'Could not create booking'
+        flash.now[:danger] = 'Could not find addresses, please verify and try again'
         render :new
       end
     end

@@ -2,5 +2,7 @@ class Location < ApplicationRecord
   has_one :booking
 
   geocoded_by :address
-  after_validation :geocode
+  before_validation :geocode
+
+  validates :longitude, :latitude, presence: true
 end
