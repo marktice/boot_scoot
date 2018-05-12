@@ -37,14 +37,13 @@ class BookingsController < ApplicationController
       redirect_to car_edit_path
       flash[:danger] = 'You require a car to make a booking'
     else
-      @booking.origin = Location.new(address: booking_params[:origin_address])
-      @booking.destination = Location.new(address: booking_params[:destination_address])
-      
+      origin = Location.new(address: booking_params[:origin_address])
+      destination = Location.new(address: booking_params[:destination_address])
       # assure locations are geocoded
-      if @booking.origin.save && @booking.destination.save
-        # passenger creates bookings
+      if origin.save && destination.save
+        @booking.origin = origin
+        @booking.destination = destination
         @booking.passenger = current_user
-        # calculate and set distance and cost
         @booking.distance = @booking.origin.distance_from(@booking.destination.to_coordinates)
         @booking.cost = 8.50 + @booking.distance * 2.75
         @booking.status = 'Booking created, pending payment'
